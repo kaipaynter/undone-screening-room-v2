@@ -17,7 +17,7 @@ import {
 
 export default function App() {
   // Modal view states for opening materials
-  const [activeDocument, setActiveDocument] = useState(null); // 'script', 'deck', 'onesheet', 'bible'
+  const [activeDocument, setActiveDocument] = useState(null); // 'script', 'deck', 'onesheet', 'bible', 'bio'
   const [activeVideo, setActiveVideo] = useState(null); // 'teaser', 'bts', 'ep1'
   const [deckPage, setDeckPage] = useState(0);
 
@@ -32,7 +32,6 @@ export default function App() {
 
   // BASE64 CONFIG PASSWORD:
   // "VU5ET05FMjAyNg==" decodes to "UNDONE2026"
-  // To change the password, encode your new password string to Base64 and replace this value.
   const ENCODED_PASS = "VU5ET05FMjAyNg==";
 
   // Hydrate lock state from browser session on mount
@@ -161,7 +160,6 @@ export default function App() {
           </div>
         </div>
 
-        { }
         {/* Executive Direct Link Tree Stack */}
         <div className="space-y-3">
 
@@ -176,7 +174,7 @@ export default function App() {
               </div>
               <div className="text-left">
                 <div className="flex items-center space-x-2">
-                  <h3 className="font-bold text-white text-sm tracking-tight uppercase">Watch Teaser Trailer</h3>
+                  <h3 className="font-bold text-white text-sm tracking-tight uppercase">2-minute promotional traile</h3>
                   <span className="text-[9px] font-mono bg-neutral-800 text-neutral-400 px-1.5 py-0.5 rounded uppercase tracking-wider">Public Access</span>
                 </div>
                 <p className="text-neutral-500 text-xs">Short dynamic mood conceptual piece</p>
@@ -185,7 +183,7 @@ export default function App() {
             <Play size={14} fill="currentColor" className="text-neutral-600 group-hover:text-amber-400 transition-colors" />
           </button>
 
-          {/* Link: BTS Trailer (UNLOCKED - PUBLIC) */}
+          {/* Link:  Interviews, concepts, and prep reels (UNLOCKED - PUBLIC) */}
           <button
             onClick={() => setActiveVideo('bts')}
             className="w-full p-5 rounded-xl bg-neutral-900/40 border border-neutral-900 hover:border-amber-500/30 hover:bg-neutral-900/80 transition-all flex items-center justify-between group"
@@ -196,7 +194,7 @@ export default function App() {
               </div>
               <div className="text-left">
                 <div className="flex items-center space-x-2">
-                  <h3 className="font-bold text-white text-sm tracking-tight uppercase">Watch Behind-The-Scenes</h3>
+                  <h3 className="font-bold text-white text-sm tracking-tight uppercase"> Interviews, concepts, and prep reels</h3>
                   <span className="text-[9px] font-mono bg-neutral-800 text-neutral-400 px-1.5 py-0.5 rounded uppercase tracking-wider">Public Access</span>
                 </div>
                 <p className="text-neutral-500 text-xs">Interviews, table reads, & concept prep reels</p>
@@ -277,7 +275,7 @@ export default function App() {
             <ExternalLink size={14} className="text-neutral-600 group-hover:text-amber-400 transition-colors" />
           </button>
 
-          {/* Link: Ep 1 Pilot Screener (LOCKED) */}
+          {/* Link: Episode 1A "The Party" Stakeholder Screener (LOCKED) */}
           <button
             onClick={() => handleProtectedAction('video', 'ep1')}
             className="w-full p-5 rounded-xl bg-neutral-900/40 border border-neutral-900 hover:border-amber-500/30 hover:bg-neutral-900/80 transition-all flex items-center justify-between group relative overflow-hidden"
@@ -288,14 +286,14 @@ export default function App() {
               </div>
               <div className="text-left">
                 <div className="flex items-center space-x-2">
-                  <h3 className="font-bold text-white text-sm tracking-tight uppercase">Watch Episode 1 "The Party"</h3>
+                  <h3 className="font-bold text-white text-sm tracking-tight uppercase">Episode 1A "The Party"</h3>
                   {isUnlocked ? (
                     <Unlock size={12} className="text-emerald-500" />
                   ) : (
                     <Lock size={12} className="text-amber-400/80" />
                   )}
                 </div>
-                <p className="text-neutral-500 text-xs">Produced 45-minute festival premier cut</p>
+                <p className="text-neutral-500 text-xs">45-minute stakeholder review cut</p>
               </div>
             </div>
             <Play size={14} fill="currentColor" className="text-neutral-600 group-hover:text-amber-400 transition-colors" />
@@ -316,6 +314,50 @@ export default function App() {
                   <span className="text-[9px] font-mono bg-neutral-800 text-neutral-400 px-1.5 py-0.5 rounded uppercase tracking-wider">Public Access</span>
                 </div>
                 <p className="text-neutral-500 text-xs">Standard 60-page network outline</p>
+              </div>
+            </div>
+            <ExternalLink size={14} className="text-neutral-600 group-hover:text-amber-400 transition-colors" />
+          </button>
+
+          {/* Link: Episode 1B "The Party" Festival Cut (LOCKED) */}
+          <button
+            onClick={() => handleProtectedAction('video', 'ep1b')}
+            className="w-full p-5 rounded-xl bg-neutral-900/40 border border-neutral-900 hover:border-amber-500/30 hover:bg-neutral-900/80 transition-all flex items-center justify-between group relative overflow-hidden"
+          >
+            <div className="flex items-center space-x-4">
+              <div className="p-3 rounded-lg bg-neutral-950 text-amber-400 group-hover:scale-105 transition-transform">
+                <Tv size={20} />
+              </div>
+              <div className="text-left">
+                <div className="flex items-center space-x-2">
+                  <h3 className="font-bold text-white text-sm tracking-tight uppercase">Episode 1B "The Party"</h3>
+                  {isUnlocked ? (
+                    <Unlock size={12} className="text-emerald-500" />
+                  ) : (
+                    <Lock size={12} className="text-amber-400/80" />
+                  )}
+                </div>
+                <p className="text-neutral-500 text-xs">Produced 45-minute festival premier cut</p>
+              </div>
+            </div>
+            <Play size={14} fill="currentColor" className="text-neutral-600 group-hover:text-amber-400 transition-colors" />
+          </button>
+
+          {/* Link: Creator Bio (UNLOCKED - PUBLIC) */}
+          <button
+            onClick={() => setActiveDocument('bio')}
+            className="w-full p-5 rounded-xl bg-neutral-900/40 border border-neutral-900 hover:border-amber-500/30 hover:bg-neutral-900/80 transition-all flex items-center justify-between group"
+          >
+            <div className="flex items-center space-x-4">
+              <div className="p-3 rounded-lg bg-neutral-950 text-amber-400 group-hover:scale-105 transition-transform">
+                <FileText size={20} />
+              </div>
+              <div className="text-left">
+                <div className="flex items-center space-x-2">
+                  <h3 className="font-bold text-white text-sm tracking-tight uppercase">Creator Bio</h3>
+                  <span className="text-[9px] font-mono bg-neutral-800 text-neutral-400 px-1.5 py-0.5 rounded uppercase tracking-wider">Public Access</span>
+                </div>
+                <p className="text-neutral-500 text-xs">Professional background and credentials</p>
               </div>
             </div>
             <ExternalLink size={14} className="text-neutral-600 group-hover:text-amber-400 transition-colors" />
@@ -358,13 +400,13 @@ export default function App() {
         © 2026 BEARTIGER PRODUCTIONS. All Rights Reserved.
       </footer>
 
-      {/* --- PASSWORD GATE LIGHTBOXPOPUP --- */}
+      {/* --- PASSWORD GATE LIGHTBOX POPUP --- */}
       {showPasswordModal && (
         <div className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex items-center justify-center p-4">
           <div className="max-w-md w-full bg-neutral-900 border border-neutral-800 p-6 md:p-8 rounded-2xl space-y-6 shadow-2xl relative">
             <button
               onClick={handleClosePasswordModal}
-              className="absolute top-4 right-4 p-1 rounded-full text-neutral-500 hover:text-white hover:bg-neutral-800 transition-all"
+              className="absolute top-4 right-4 p-1 rounded-full text-neutral-500 hover:text-white hover:bg-neutral-880 transition-all"
             >
               <X size={16} />
             </button>
@@ -435,6 +477,7 @@ export default function App() {
                 {activeDocument === 'deck' && "INTERACTIVE DECK"}
                 {activeDocument === 'bible' && "SERIES BIBLE EXTRACT"}
                 {activeDocument === 'onesheet' && "EXECUTIVE SUMMARY"}
+                {activeDocument === 'bio' && "CREATOR BIO DOCUMENT"}
               </span>
               <button
                 onClick={() => setActiveDocument(null)}
@@ -550,6 +593,29 @@ export default function App() {
                   </div>
                 )}
 
+                {/* Creator Bio Document View */}
+                {activeDocument === 'bio' && (
+                  <div className="space-y-4 font-sans text-xs text-neutral-800">
+                    <h2 className="text-lg font-bold text-neutral-900 uppercase tracking-tight">CREATOR PROFILE</h2>
+                    <p className="text-xs font-semibold text-neutral-500 uppercase tracking-widest leading-none">
+                      Professional background and credentials
+                    </p>
+                    <div className="h-[1px] w-full bg-neutral-200 my-2" />
+                    <p className="leading-relaxed">
+                      <strong>Lead Creator Portfolio:</strong> Award-winning screenwriter and director based in Los Angeles, California. Alumni of leading cinematic institutions with a track record of character-driven comedies and independent film festival selections.
+                    </p>
+                    <p className="leading-relaxed">
+                      <strong>Creative Vision:</strong> Specializing in modern relationship dynamics, biracial and intersectional storytelling, and capturing the authentic, raw texture of coastal urban life.
+                    </p>
+                    <p className="leading-relaxed">
+                      <strong>Select Credentials:</strong>
+                      <br />• WGA West Member since 2019
+                      <br />• Official Selection - Sundance Creative Producing Lab (2023)
+                      <br />• Tribeca Film Festival Short Film Contributor
+                    </p>
+                  </div>
+                )}
+
               </div>
 
               {/* Secure footer info block */}
@@ -576,7 +642,8 @@ export default function App() {
               <span className="text-xs font-mono text-amber-400 font-bold uppercase">
                 {activeVideo === 'teaser' && "Teaser Trailer Preview"}
                 {activeVideo === 'bts' && "Behind-The-Scenes Cut"}
-                {activeVideo === 'ep1' && "Episode 1 'The Party' screener"}
+                {activeVideo === 'ep1' && "Episode 1A 'The Party' screener"}
+                {activeVideo === 'ep1b' && "Episode 1B 'The Party' screener"}
               </span>
               <button
                 onClick={() => setActiveVideo(null)}
