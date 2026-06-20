@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import {
-  FileText,
-  BookOpen,
-  Play,
-  Film,
-  Tv,
-  X,
-  Mail,
+import { 
+  FileText, 
+  BookOpen, 
+  Play, 
+  Film, 
+  Tv, 
+  X, 
+  Mail, 
   ExternalLink,
   Lock,
   Unlock,
@@ -18,7 +18,7 @@ import {
 export default function App() {
   // Modal view states for opening materials
   const [activeDocument, setActiveDocument] = useState(null); // 'script', 'deck', 'onesheet', 'bible', 'bio'
-  const [activeVideo, setActiveVideo] = useState(null); // 'teaser', 'bts', 'ep1'
+  const [activeVideo, setActiveVideo] = useState(null); // 'teaser', 'bts', 'ep1', 'ep1b'
   const [deckPage, setDeckPage] = useState(0);
 
   // Password Verification States
@@ -26,7 +26,7 @@ export default function App() {
   const [showPasswordModal, setShowPasswordModal] = useState(false);
   const [inputPassword, setInputPassword] = useState('');
   const [passwordError, setPasswordError] = useState(false);
-
+  
   // Track what the user clicked before being prompted for a password
   const [pendingAction, setPendingAction] = useState(null); // { type: 'document'|'video', target: string }
 
@@ -128,13 +128,13 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-neutral-950 text-neutral-200 font-sans selection:bg-amber-500 selection:text-black flex flex-col justify-between relative">
-
+      
       {/* Background radial soft light */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[400px] bg-amber-500/5 rounded-full blur-[120px] pointer-events-none -z-10" />
 
       {/* Main Content Container */}
       <main className="max-w-2xl w-full mx-auto px-6 py-16 md:py-24 space-y-12">
-
+        
         {/* Simplified Premium Header */}
         <div className="text-center space-y-4">
           <div className="space-y-1">
@@ -162,9 +162,9 @@ export default function App() {
 
         {/* Executive Direct Link Tree Stack */}
         <div className="space-y-3">
-
+          
           {/* Link: Teaser Trailer (UNLOCKED - PUBLIC) */}
-          <button
+          <button 
             onClick={() => setActiveVideo('teaser')}
             className="w-full p-5 rounded-xl bg-neutral-900/40 border border-neutral-900 hover:border-amber-500/30 hover:bg-neutral-900/80 transition-all flex items-center justify-between group"
           >
@@ -174,7 +174,7 @@ export default function App() {
               </div>
               <div className="text-left">
                 <div className="flex items-center space-x-2">
-                  <h3 className="font-bold text-white text-sm tracking-tight uppercase">2-minute promotional traile</h3>
+                  <h3 className="font-bold text-white text-sm tracking-tight uppercase">Watch Teaser Trailer</h3>
                   <span className="text-[9px] font-mono bg-neutral-800 text-neutral-400 px-1.5 py-0.5 rounded uppercase tracking-wider">Public Access</span>
                 </div>
                 <p className="text-neutral-500 text-xs">Short dynamic mood conceptual piece</p>
@@ -183,8 +183,8 @@ export default function App() {
             <Play size={14} fill="currentColor" className="text-neutral-600 group-hover:text-amber-400 transition-colors" />
           </button>
 
-          {/* Link:  Interviews, concepts, and prep reels (UNLOCKED - PUBLIC) */}
-          <button
+          {/* Link: BTS Trailer (UNLOCKED - PUBLIC) */}
+          <button 
             onClick={() => setActiveVideo('bts')}
             className="w-full p-5 rounded-xl bg-neutral-900/40 border border-neutral-900 hover:border-amber-500/30 hover:bg-neutral-900/80 transition-all flex items-center justify-between group"
           >
@@ -194,7 +194,7 @@ export default function App() {
               </div>
               <div className="text-left">
                 <div className="flex items-center space-x-2">
-                  <h3 className="font-bold text-white text-sm tracking-tight uppercase"> Interviews, concepts, and prep reels</h3>
+                  <h3 className="font-bold text-white text-sm tracking-tight uppercase">Watch Behind-The-Scenes</h3>
                   <span className="text-[9px] font-mono bg-neutral-800 text-neutral-400 px-1.5 py-0.5 rounded uppercase tracking-wider">Public Access</span>
                 </div>
                 <p className="text-neutral-500 text-xs">Interviews, table reads, & concept prep reels</p>
@@ -204,7 +204,7 @@ export default function App() {
           </button>
 
           {/* Link: Series Bible (LOCKED) */}
-          <button
+          <button 
             onClick={() => handleProtectedAction('document', 'bible')}
             className="w-full p-5 rounded-xl bg-neutral-900/40 border border-neutral-900 hover:border-amber-500/30 hover:bg-neutral-900/80 transition-all flex items-center justify-between group relative overflow-hidden"
           >
@@ -228,7 +228,7 @@ export default function App() {
           </button>
 
           {/* Link: One-Sheet (LOCKED) */}
-          <button
+          <button 
             onClick={() => handleProtectedAction('document', 'onesheet')}
             className="w-full p-5 rounded-xl bg-neutral-900/40 border border-neutral-900 hover:border-amber-500/30 hover:bg-neutral-900/80 transition-all flex items-center justify-between group relative overflow-hidden"
           >
@@ -252,7 +252,7 @@ export default function App() {
           </button>
 
           {/* Link: Pitch Deck (LOCKED) */}
-          <button
+          <button 
             onClick={() => handleProtectedAction('document', 'deck')}
             className="w-full p-5 rounded-xl bg-neutral-900/40 border border-neutral-900 hover:border-amber-500/30 hover:bg-neutral-900/80 transition-all flex items-center justify-between group relative overflow-hidden"
           >
@@ -276,7 +276,7 @@ export default function App() {
           </button>
 
           {/* Link: Episode 1A "The Party" Stakeholder Screener (LOCKED) */}
-          <button
+          <button 
             onClick={() => handleProtectedAction('video', 'ep1')}
             className="w-full p-5 rounded-xl bg-neutral-900/40 border border-neutral-900 hover:border-amber-500/30 hover:bg-neutral-900/80 transition-all flex items-center justify-between group relative overflow-hidden"
           >
@@ -293,14 +293,14 @@ export default function App() {
                     <Lock size={12} className="text-amber-400/80" />
                   )}
                 </div>
-                <p className="text-neutral-500 text-xs">45-minute stakeholder review cut</p>
+                <p className="text-neutral-500 text-xs">45-minute stakeholder review cut, no public release</p>
               </div>
             </div>
             <Play size={14} fill="currentColor" className="text-neutral-600 group-hover:text-amber-400 transition-colors" />
           </button>
 
           {/* Link: Pilot Script (UNLOCKED - PUBLIC) */}
-          <button
+          <button 
             onClick={() => setActiveDocument('script')}
             className="w-full p-5 rounded-xl bg-neutral-900/40 border border-neutral-900 hover:border-amber-500/30 hover:bg-neutral-900/80 transition-all flex items-center justify-between group"
           >
@@ -320,7 +320,7 @@ export default function App() {
           </button>
 
           {/* Link: Episode 1B "The Party" Festival Cut (LOCKED) */}
-          <button
+          <button 
             onClick={() => handleProtectedAction('video', 'ep1b')}
             className="w-full p-5 rounded-xl bg-neutral-900/40 border border-neutral-900 hover:border-amber-500/30 hover:bg-neutral-900/80 transition-all flex items-center justify-between group relative overflow-hidden"
           >
@@ -344,7 +344,7 @@ export default function App() {
           </button>
 
           {/* Link: Creator Bio (UNLOCKED - PUBLIC) */}
-          <button
+          <button 
             onClick={() => setActiveDocument('bio')}
             className="w-full p-5 rounded-xl bg-neutral-900/40 border border-neutral-900 hover:border-amber-500/30 hover:bg-neutral-900/80 transition-all flex items-center justify-between group"
           >
@@ -370,8 +370,8 @@ export default function App() {
           <p className="text-xs text-neutral-500">
             For options, packaging files, or distribution inquiry:
           </p>
-          <a
-            href="mailto:contact@beartigerproductions.com"
+          <a 
+            href="mailto:contact@beartigerproductions.com" 
             className="inline-flex items-center space-x-1.5 text-xs text-amber-400 hover:underline hover:text-amber-300 transition-colors"
           >
             <Mail size={12} />
@@ -380,7 +380,7 @@ export default function App() {
 
           {isUnlocked && (
             <div className="pt-2">
-              <button
+              <button 
                 onClick={() => {
                   setIsUnlocked(false);
                   sessionStorage.removeItem('undone_portal_unlocked');
@@ -404,7 +404,7 @@ export default function App() {
       {showPasswordModal && (
         <div className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex items-center justify-center p-4">
           <div className="max-w-md w-full bg-neutral-900 border border-neutral-800 p-6 md:p-8 rounded-2xl space-y-6 shadow-2xl relative">
-            <button
+            <button 
               onClick={handleClosePasswordModal}
               className="absolute top-4 right-4 p-1 rounded-full text-neutral-500 hover:text-white hover:bg-neutral-880 transition-all"
             >
@@ -423,7 +423,7 @@ export default function App() {
 
             <form onSubmit={handlePasswordSubmit} className="space-y-4">
               <div className="space-y-1">
-                <input
+                <input 
                   type="password"
                   required
                   placeholder="Enter Passcode"
@@ -445,14 +445,14 @@ export default function App() {
               )}
 
               <div className="flex gap-2 pt-2">
-                <button
+                <button 
                   type="button"
                   onClick={handleClosePasswordModal}
                   className="flex-1 py-2.5 bg-neutral-800 hover:bg-neutral-750 text-neutral-400 rounded-xl text-xs font-bold uppercase tracking-wider transition-all"
                 >
                   Cancel
                 </button>
-                <button
+                <button 
                   type="submit"
                   className="flex-1 py-2.5 bg-amber-400 hover:bg-amber-300 text-black rounded-xl text-xs font-bold uppercase tracking-wider transition-all"
                 >
@@ -470,7 +470,7 @@ export default function App() {
       {activeDocument && (
         <div className="fixed inset-0 z-40 bg-black/95 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
           <div className="max-w-2xl w-full my-6 space-y-4">
-
+            
             <div className="flex items-center justify-between">
               <span className="text-[10px] font-mono uppercase bg-neutral-900 px-3 py-1 text-amber-400 rounded-full border border-neutral-800">
                 {activeDocument === 'script' && "SCREENPLAY PROOF"}
@@ -479,7 +479,7 @@ export default function App() {
                 {activeDocument === 'onesheet' && "EXECUTIVE SUMMARY"}
                 {activeDocument === 'bio' && "CREATOR BIO DOCUMENT"}
               </span>
-              <button
+              <button 
                 onClick={() => setActiveDocument(null)}
                 className="flex items-center space-x-1 px-3 py-1 bg-neutral-900 hover:bg-neutral-800 text-xs text-neutral-400 rounded-full border border-neutral-800 transition-colors"
               >
@@ -490,9 +490,9 @@ export default function App() {
 
             {/* Document page markup container */}
             <div className="bg-white text-black p-8 md:p-12 rounded-xl relative shadow-2xl min-h-[500px] flex flex-col justify-between font-serif relative overflow-hidden select-text">
-
+              
               <div className="space-y-6 max-w-xl mx-auto text-neutral-950 font-mono text-xs md:text-sm">
-
+                
                 {/* Script Viewer View */}
                 {activeDocument === 'script' && (
                   <div className="space-y-6">
@@ -503,7 +503,7 @@ export default function App() {
 
                     <div className="space-y-4 font-mono text-xs leading-relaxed">
                       <p className="font-bold">FADE IN:</p>
-
+                      
                       <div className="space-y-1">
                         <p className="font-bold">EXT. HOLLYWOOD HILLS - TWILIGHT</p>
                         <p className="text-neutral-800">The sky is a bruised plum color. Humid twilight clings to the hills under the Hollywood Sign. Neon gradients bleed softly into the cracked gray sidewalks.</p>
@@ -547,13 +547,13 @@ export default function App() {
                         Page {deckPage + 1} of {pitchDeckSlides.length}
                       </span>
                       <div className="flex gap-2">
-                        <button
+                        <button 
                           onClick={() => setDeckPage(prev => Math.max(0, prev - 1))}
                           className="px-3 py-1 bg-neutral-100 hover:bg-neutral-200 border border-neutral-200 text-xs font-bold rounded"
                         >
                           Prev
                         </button>
-                        <button
+                        <button 
                           onClick={() => setDeckPage(prev => Math.min(pitchDeckSlides.length - 1, prev + 1))}
                           className="px-3 py-1 bg-neutral-100 hover:bg-neutral-200 border border-neutral-200 text-xs font-bold rounded"
                         >
@@ -593,26 +593,55 @@ export default function App() {
                   </div>
                 )}
 
-                {/* Creator Bio Document View */}
+                {/* Creator Bio Document View (Kai Paynter Actual Text) */}
                 {activeDocument === 'bio' && (
                   <div className="space-y-4 font-sans text-xs text-neutral-800">
-                    <h2 className="text-lg font-bold text-neutral-900 uppercase tracking-tight">CREATOR PROFILE</h2>
-                    <p className="text-xs font-semibold text-neutral-500 uppercase tracking-widest leading-none">
-                      Professional background and credentials
-                    </p>
+                    <div className="flex justify-between items-start">
+                      <div>
+                        <h2 className="text-lg font-bold text-neutral-900 uppercase tracking-tight">KAI PAYNTER</h2>
+                        <p className="text-[10px] font-semibold text-neutral-500 uppercase tracking-widest leading-none mt-1">
+                          Founder of The Americas & Co-Founder of BearTiger Productions
+                        </p>
+                      </div>
+                      <a 
+                        href="/creator_bio.pdf" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center space-x-1 px-3 py-1.5 bg-neutral-900 hover:bg-neutral-800 text-white rounded text-[10px] font-mono transition-colors border border-neutral-800"
+                      >
+                        <FileText size={10} />
+                        <span>Open Official PDF</span>
+                      </a>
+                    </div>
+                    
                     <div className="h-[1px] w-full bg-neutral-200 my-2" />
-                    <p className="leading-relaxed">
-                      <strong>Lead Creator Portfolio:</strong> Award-winning screenwriter and director based in Los Angeles, California. Alumni of leading cinematic institutions with a track record of character-driven comedies and independent film festival selections.
-                    </p>
-                    <p className="leading-relaxed">
-                      <strong>Creative Vision:</strong> Specializing in modern relationship dynamics, biracial and intersectional storytelling, and capturing the authentic, raw texture of coastal urban life.
-                    </p>
-                    <p className="leading-relaxed">
-                      <strong>Select Credentials:</strong>
-                      <br />• WGA West Member since 2019
-                      <br />• Official Selection - Sundance Creative Producing Lab (2023)
-                      <br />• Tribeca Film Festival Short Film Contributor
-                    </p>
+                    
+                    <div className="space-y-3 leading-relaxed text-neutral-700">
+                      <p>
+                        <strong>Kai Paynter</strong> is a New York-native, Los Angeles-based artist and creative working across the United States and Australia. She is the founder of <em>The Americas, A Theatre Company</em> and co-founder of <em>BearTiger Productions</em>.
+                      </p>
+                      <p>
+                        An MFA graduate of the University of California, Irvine (summa cum laude) and BA (Honors) in Political Science from Purdue University, Kai trained under world-renowned theatre director Robert Cohen and began her career as a featured soloist with PMO, performing internationally and on PBS holiday specials, including at Neil Armstrong's Hall of Fame induction.
+                      </p>
+                      <p>
+                        Her theatre work includes the world premiere of Neil LaBute’s <em>The Furies</em> and the Australian premiere of <em>If I Needed Someone</em>, a self-directed two-hander that received critical acclaim: <em>"Sydney will see If I Needed Someone again and again, but perhaps never as contained or personal, with such tight direction and intense acting."</em>
+                      </p>
+                      <p>
+                        Her producing, writing, and directing slate spans original and classical work across stage, television, music videos, and actor showcases, including ongoing collaborations with Neil LaBute on projects such as <em>The Money Shot</em> and <em>All the Ways to Say I Love You</em>.
+                      </p>
+                      <p>
+                        With on-screen credits in film and television, Kai has appeared on networks, including CBS's <em>Criminal Minds</em> opposite Joe Mantegna, and in campaigns for Apple, Honda, and Boost Mobile, among others. Her portrayal of Abigail in <em>The Crucible</em> was featured in US Airways Inflight Magazine, which highlighted UC Irvine as the "#1 training institution for young creative talent."
+                      </p>
+                      <p>
+                        Kai remains a sought-after industry figure working with emerging and established talent from programs such as Australian Idol, supporting their transition into theatre and television. She has placed artists into programs at Yale School of Drama, Columbia University, and NYU's Tisch, and is regularly engaged by leading casting directors and talent management to prepare high-profile artists for the American film and television markets.
+                      </p>
+                      <p>
+                        More recently, Kai received the Sydney S+S Festival Awards for Best Director and Best Play. Her work is defined by rigorous craft, elevated performances, and character-driven storytelling with global appeal.
+                      </p>
+                      <p className="font-semibold pt-1 text-neutral-900">
+                        Portfolio: www.BearTigerProductions.com
+                      </p>
+                    </div>
                   </div>
                 )}
 
@@ -637,7 +666,7 @@ export default function App() {
       {activeVideo && (
         <div className="fixed inset-0 z-40 bg-black/95 backdrop-blur-md flex items-center justify-center p-4">
           <div className="max-w-3xl w-full space-y-4">
-
+            
             <div className="flex items-center justify-between">
               <span className="text-xs font-mono text-amber-400 font-bold uppercase">
                 {activeVideo === 'teaser' && "Teaser Trailer Preview"}
@@ -645,7 +674,7 @@ export default function App() {
                 {activeVideo === 'ep1' && "Episode 1A 'The Party' screener"}
                 {activeVideo === 'ep1b' && "Episode 1B 'The Party' screener"}
               </span>
-              <button
+              <button 
                 onClick={() => setActiveVideo(null)}
                 className="flex items-center space-x-1 px-3 py-1 bg-neutral-900 hover:bg-neutral-850 text-xs text-neutral-400 rounded-full border border-neutral-800 transition-colors"
               >
@@ -656,7 +685,7 @@ export default function App() {
 
             {/* Simulated protected viewport */}
             <div className="relative aspect-video bg-neutral-950 rounded-xl border border-neutral-800 overflow-hidden flex flex-col justify-center items-center text-center p-6 space-y-4 shadow-2xl select-none">
-
+              
               {/* Floating watermark */}
               <div className="absolute inset-0 pointer-events-none flex flex-col justify-between p-6 text-neutral-500/20 font-mono text-[9px] sm:text-xs">
                 <div className="flex justify-between">
