@@ -21,6 +21,9 @@ export default function App() {
   const [activeVideo, setActiveVideo] = useState(null); // 'teaser', 'bts', 'ep1', 'ep1b'
   const [deckPage, setDeckPage] = useState(0);
 
+  // Fallback states
+  const [portraitError, setPortraitError] = useState(false);
+
   // Password Verification States
   const [isUnlocked, setIsUnlocked] = useState(false);
   const [showPasswordModal, setShowPasswordModal] = useState(false);
@@ -175,7 +178,7 @@ export default function App() {
               <div className="text-left">
                 <div className="flex items-center space-x-2">
                   <h3 className="font-bold text-white text-sm tracking-tight uppercase">Watch Teaser Trailer</h3>
-                  <span className="text-[9px] font-mono bg-neutral-800 text-neutral-400 px-1.5 py-0.5 rounded uppercase tracking-wider">Public Access</span>
+                  <span className="text-[9px] font-mono bg-neutral-800 text-neutral-400 px-1.5 py-0.5 rounded uppercase tracking-wider">{"Public Access"}</span>
                 </div>
                 <p className="text-neutral-500 text-xs">Short dynamic mood conceptual piece</p>
               </div>
@@ -195,7 +198,7 @@ export default function App() {
               <div className="text-left">
                 <div className="flex items-center space-x-2">
                   <h3 className="font-bold text-white text-sm tracking-tight uppercase">Watch Behind-The-Scenes</h3>
-                  <span className="text-[9px] font-mono bg-neutral-800 text-neutral-400 px-1.5 py-0.5 rounded uppercase tracking-wider">Public Access</span>
+                  <span className="text-[9px] font-mono bg-neutral-800 text-neutral-400 px-1.5 py-0.5 rounded uppercase tracking-wider">{"Public Access"}</span>
                 </div>
                 <p className="text-neutral-500 text-xs">Interviews, table reads, & concept prep reels</p>
               </div>
@@ -299,26 +302,6 @@ export default function App() {
             <Play size={14} fill="currentColor" className="text-neutral-600 group-hover:text-amber-400 transition-colors" />
           </button>
 
-          {/* Link: Pilot Script (UNLOCKED - PUBLIC) */}
-          <button 
-            onClick={() => setActiveDocument('script')}
-            className="w-full p-5 rounded-xl bg-neutral-900/40 border border-neutral-900 hover:border-amber-500/30 hover:bg-neutral-900/80 transition-all flex items-center justify-between group"
-          >
-            <div className="flex items-center space-x-4">
-              <div className="p-3 rounded-lg bg-neutral-950 text-amber-400 group-hover:scale-105 transition-transform">
-                <FileText size={20} />
-              </div>
-              <div className="text-left">
-                <div className="flex items-center space-x-2">
-                  <h3 className="font-bold text-white text-sm tracking-tight uppercase">Read Pilot Script</h3>
-                  <span className="text-[9px] font-mono bg-neutral-800 text-neutral-400 px-1.5 py-0.5 rounded uppercase tracking-wider">Public Access</span>
-                </div>
-                <p className="text-neutral-500 text-xs">Standard 60-page network outline</p>
-              </div>
-            </div>
-            <ExternalLink size={14} className="text-neutral-600 group-hover:text-amber-400 transition-colors" />
-          </button>
-
           {/* Link: Episode 1B "The Party" Festival Cut (LOCKED) */}
           <button 
             onClick={() => handleProtectedAction('video', 'ep1b')}
@@ -343,6 +326,26 @@ export default function App() {
             <Play size={14} fill="currentColor" className="text-neutral-600 group-hover:text-amber-400 transition-colors" />
           </button>
 
+          {/* Link: Pilot Script (UNLOCKED - PUBLIC) */}
+          <button 
+            onClick={() => setActiveDocument('script')}
+            className="w-full p-5 rounded-xl bg-neutral-900/40 border border-neutral-900 hover:border-amber-500/30 hover:bg-neutral-900/80 transition-all flex items-center justify-between group"
+          >
+            <div className="flex items-center space-x-4">
+              <div className="p-3 rounded-lg bg-neutral-950 text-amber-400 group-hover:scale-105 transition-transform">
+                <FileText size={20} />
+              </div>
+              <div className="text-left">
+                <div className="flex items-center space-x-2">
+                  <h3 className="font-bold text-white text-sm tracking-tight uppercase">Read Pilot Script</h3>
+                  <span className="text-[9px] font-mono bg-neutral-800 text-neutral-400 px-1.5 py-0.5 rounded uppercase tracking-wider">{"Public Access"}</span>
+                </div>
+                <p className="text-neutral-500 text-xs">Standard 60-page network outline</p>
+              </div>
+            </div>
+            <ExternalLink size={14} className="text-neutral-600 group-hover:text-amber-400 transition-colors" />
+          </button>
+
           {/* Link: Creator Bio (UNLOCKED - PUBLIC) */}
           <button 
             onClick={() => setActiveDocument('bio')}
@@ -355,7 +358,7 @@ export default function App() {
               <div className="text-left">
                 <div className="flex items-center space-x-2">
                   <h3 className="font-bold text-white text-sm tracking-tight uppercase">Creator Bio</h3>
-                  <span className="text-[9px] font-mono bg-neutral-800 text-neutral-400 px-1.5 py-0.5 rounded uppercase tracking-wider">Public Access</span>
+                  <span className="text-[9px] font-mono bg-neutral-800 text-neutral-400 px-1.5 py-0.5 rounded uppercase tracking-wider">{"Public Access"}</span>
                 </div>
                 <p className="text-neutral-500 text-xs">Professional background and credentials</p>
               </div>
@@ -406,7 +409,7 @@ export default function App() {
           <div className="max-w-md w-full bg-neutral-900 border border-neutral-800 p-6 md:p-8 rounded-2xl space-y-6 shadow-2xl relative">
             <button 
               onClick={handleClosePasswordModal}
-              className="absolute top-4 right-4 p-1 rounded-full text-neutral-500 hover:text-white hover:bg-neutral-880 transition-all"
+              className="absolute top-4 right-4 p-1 rounded-full text-neutral-500 hover:text-white hover:bg-neutral-850 transition-all"
             >
               <X size={16} />
             </button>
@@ -465,10 +468,8 @@ export default function App() {
       )}
 
       {/* --- INLINE LIGHTBOX POPUPS FOR INSTANT REVIEWING --- */}
-
-      {/* 1. SCREENPLAY & DOCUMENT VIEWER */}
       {activeDocument && (
-        <div className="fixed inset-0 z-40 bg-black/95 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
+        <div className="fixed inset-0 z-40 bg-black/95 backdrop-blur-md overflow-y-auto flex justify-center items-start p-4 md:p-6">
           <div className="max-w-4xl w-full my-6 space-y-4">
             
             <div className="flex items-center justify-between">
@@ -481,7 +482,7 @@ export default function App() {
               </span>
               <button 
                 onClick={() => setActiveDocument(null)}
-                className="flex items-center space-x-1 px-3 py-1 bg-neutral-900 hover:bg-neutral-800 text-xs text-neutral-400 rounded-full border border-neutral-800 transition-colors"
+                className="flex items-center space-x-1 px-3 py-1 bg-neutral-900 hover:bg-neutral-850 text-xs text-neutral-400 rounded-full border border-neutral-800 transition-colors"
               >
                 <X size={12} />
                 <span>Close Material</span>
@@ -489,7 +490,7 @@ export default function App() {
             </div>
 
             {/* Document page markup container */}
-            <div className="bg-white text-black p-8 md:p-12 rounded-xl relative shadow-2xl min-h-[500px] flex flex-col justify-between font-serif relative overflow-hidden select-text">
+            <div className="bg-white text-black p-8 md:p-12 rounded-xl relative shadow-2xl min-h-[500px] flex flex-col justify-between font-serif overflow-hidden select-text">
               
               <div className="space-y-6 max-w-3xl mx-auto text-neutral-950 font-mono text-xs md:text-sm w-full">
                 
@@ -607,7 +608,7 @@ export default function App() {
                         href="/undone_creator_bio.pdf" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="inline-flex items-center space-x-1 px-3 py-1.5 bg-neutral-900 hover:bg-neutral-800 text-white rounded text-[10px] font-mono transition-colors border border-neutral-800"
+                        className="inline-flex items-center space-x-1.5 px-3 py-1.5 bg-neutral-900 hover:bg-neutral-850 text-white rounded text-[10px] font-mono transition-colors border border-neutral-800"
                       >
                         <FileText size={10} />
                         <span>Open Official PDF</span>
@@ -622,29 +623,26 @@ export default function App() {
                       {/* Left Column: Portrait */}
                       <div className="md:col-span-5 space-y-2">
                         <div className="relative aspect-[3/4] bg-neutral-100 border border-neutral-200 rounded-lg overflow-hidden flex items-center justify-center group shadow-sm">
-                          <img 
-                            src="/kai_paynter.jpg" 
-                            alt="Kai Paynter Portrait"
-                            className="w-full h-full object-cover"
-                            onError={(e) => {
-                              // Elegant fallback if they haven't uploaded kai_paynter.jpg to public/ folder yet
-                              e.target.onerror = null;
-                              e.target.style.display = 'none';
-                              e.target.parentNode.innerHTML = `
-                                <div class="text-center p-6 space-y-2">
-                                  <div class="w-10 h-10 rounded-full bg-neutral-200 flex items-center justify-center text-neutral-400 mx-auto">
-                                    <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2">
-                                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                                      <circle cx="12" cy="7" r="4" />
-                                    </svg>
-                                  </div>
-                                  <p class="text-[10px] font-mono text-neutral-400 leading-tight">
-                                    [ Place image inside public/kai_paynter.jpg ]
-                                  </p>
-                                </div>
-                              `;
-                            }}
-                          />
+                          {!portraitError ? (
+                            <img 
+                              src="/kai_paynter.jpg" 
+                              alt="Kai Paynter Portrait"
+                              className="w-full h-full object-cover"
+                              onError={() => setPortraitError(true)}
+                            />
+                          ) : (
+                            <div className="text-center p-6 space-y-2">
+                              <div className="w-10 h-10 rounded-full bg-neutral-200 flex items-center justify-center text-neutral-400 mx-auto">
+                                <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2">
+                                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                                  <circle cx="12" cy="7" r="4" />
+                                </svg>
+                              </div>
+                              <p className="text-[10px] font-mono text-neutral-400 leading-tight font-sans">
+                                {"[ Place image inside public/kai_paynter.jpg ]"}
+                              </p>
+                            </div>
+                          )}
                         </div>
                         <p className="text-[9px] text-center font-mono text-neutral-400 uppercase tracking-widest">
                           Kai Paynter
@@ -652,7 +650,7 @@ export default function App() {
                       </div>
 
                       {/* Right Column: Biography Copy */}
-                      <div className="md:col-span-7 space-y-3 leading-relaxed text-neutral-700">
+                      <div className="md:col-span-7 space-y-3 leading-relaxed text-neutral-700 font-sans">
                         <p>
                           <strong>Kai Paynter</strong> is a New York-native, Los Angeles-based artist and creative working across the United States and Australia. She is the founder of <em>The Americas, A Theatre Company</em> and co-founder of <em>BearTiger Productions</em>.
                         </p>
@@ -672,7 +670,7 @@ export default function App() {
                           Kai remains a sought-after industry figure working with emerging and established talent from programs such as Australian Idol, supporting their transition into theatre and television. She has placed artists into programs at Yale School of Drama, Columbia University, and NYU's Tisch, and is regularly engaged by leading casting directors and talent management to prepare high-profile artists for the American film and television markets.
                         </p>
                         <p>
-                          More recently, Kai received the Sydney S+S Festival Awards for Best Director and Best Play. Her work is defined by rigorous craft, elevated performances, and character-driven storytelling with global appeal.
+                          Kai remains active on the live scene. More recently, she received the Sydney S+S Festival Awards for Best Director and Best Play. Her work is defined by rigorous craft, elevated performances, and character-driven storytelling with global appeal.
                         </p>
                         <p className="font-semibold pt-1 text-neutral-900 border-t border-neutral-100">
                           Portfolio: www.BearTigerProductions.com
@@ -685,9 +683,18 @@ export default function App() {
 
               </div>
 
-              {/* Secure footer info block */}
-              <div className="pt-8 border-t border-neutral-200 text-center font-mono text-[9px] text-neutral-400 select-none">
-                WGA WEST REGISTERED PREVIEW • BEARTIGER PRODUCTIONS © 2026
+              {/* Bottom Navigation and Return actions for tall pages */}
+              <div className="mt-8 pt-6 border-t border-neutral-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <span className="font-mono text-[9px] text-neutral-400 select-none">
+                  WGA WEST REGISTERED PREVIEW • BEARTIGER PRODUCTIONS © 2026
+                </span>
+                <button 
+                  onClick={() => setActiveDocument(null)}
+                  className="px-4 py-2 bg-neutral-900 hover:bg-neutral-850 text-white rounded text-xs font-mono transition-colors border border-neutral-800 flex items-center space-x-1.5"
+                >
+                  <X size={12} />
+                  <span>Return to Portal</span>
+                </button>
               </div>
 
             </div>
@@ -709,8 +716,8 @@ export default function App() {
               <span className="text-xs font-mono text-amber-400 font-bold uppercase">
                 {activeVideo === 'teaser' && "Teaser Trailer Preview"}
                 {activeVideo === 'bts' && "Behind-The-Scenes Cut"}
-                {activeVideo === 'ep1' && "Episode 1A 'The Party' screener"}
-                {activeVideo === 'ep1b' && "Episode 1B 'The Party' screener"}
+                {activeVideo === 'ep1' && "Episode 1A 'The Party' Stakeholder Review"}
+                {activeVideo === 'ep1b' && "Episode 1B 'The Party' Festival Cut"}
               </span>
               <button 
                 onClick={() => setActiveVideo(null)}
