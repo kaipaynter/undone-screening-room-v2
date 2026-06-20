@@ -469,7 +469,7 @@ export default function App() {
       {/* 1. SCREENPLAY & DOCUMENT VIEWER */}
       {activeDocument && (
         <div className="fixed inset-0 z-40 bg-black/95 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
-          <div className="max-w-2xl w-full my-6 space-y-4">
+          <div className="max-w-4xl w-full my-6 space-y-4">
             
             <div className="flex items-center justify-between">
               <span className="text-[10px] font-mono uppercase bg-neutral-900 px-3 py-1 text-amber-400 rounded-full border border-neutral-800">
@@ -491,11 +491,11 @@ export default function App() {
             {/* Document page markup container */}
             <div className="bg-white text-black p-8 md:p-12 rounded-xl relative shadow-2xl min-h-[500px] flex flex-col justify-between font-serif relative overflow-hidden select-text">
               
-              <div className="space-y-6 max-w-xl mx-auto text-neutral-950 font-mono text-xs md:text-sm">
+              <div className="space-y-6 max-w-3xl mx-auto text-neutral-950 font-mono text-xs md:text-sm w-full">
                 
                 {/* Script Viewer View */}
                 {activeDocument === 'script' && (
-                  <div className="space-y-6">
+                  <div className="space-y-6 max-w-xl mx-auto">
                     <div className="text-center py-6 space-y-2">
                       <h2 className="text-2xl font-bold tracking-widest uppercase font-mono">U N D O N E</h2>
                       <p className="text-[10px]">Written by Beartiger Creative Group</p>
@@ -524,7 +524,7 @@ export default function App() {
 
                 {/* Pitch Deck Slides View */}
                 {activeDocument === 'deck' && (
-                  <div className="space-y-6 py-6 font-sans">
+                  <div className="space-y-6 py-6 font-sans max-w-xl mx-auto">
                     <div className="bg-neutral-50 p-6 rounded-lg border border-neutral-200 min-h-[220px] flex flex-col justify-between">
                       <div className="space-y-2">
                         <span className="text-[9px] font-mono uppercase tracking-wider text-amber-600 font-bold">
@@ -566,7 +566,7 @@ export default function App() {
 
                 {/* Series Bible View */}
                 {activeDocument === 'bible' && (
-                  <div className="space-y-4 font-sans text-xs text-neutral-800">
+                  <div className="space-y-4 font-sans text-xs text-neutral-800 max-w-xl mx-auto">
                     <h2 className="text-lg font-bold text-neutral-900 uppercase tracking-tight">SERIES LOGISTICAL BIBLE</h2>
                     <p className="leading-relaxed">
                       <strong>Format:</strong> 10-Episode Limited Comedy-Drama Series (45-Minute Chapters)
@@ -582,7 +582,7 @@ export default function App() {
 
                 {/* One Sheet View */}
                 {activeDocument === 'onesheet' && (
-                  <div className="space-y-4 font-sans text-xs text-neutral-800">
+                  <div className="space-y-4 font-sans text-xs text-neutral-800 max-w-xl mx-auto">
                     <h2 className="text-lg font-bold text-neutral-900 uppercase tracking-tight">PROJECT ONE-SHEET</h2>
                     <p className="leading-relaxed">
                       <strong>Logistical Summary:</strong> UNDONE is a ready-to-package premier comedy-drama with complete pilot drafts, multi-season bible summaries, visual pitches, and estimated pilot budgeting breakdowns.
@@ -593,18 +593,18 @@ export default function App() {
                   </div>
                 )}
 
-                {/* Creator Bio Document View (Kai Paynter Actual Text) */}
+                {/* Creator Bio Document View (Kai Paynter Actual Text + Side Image Layout) */}
                 {activeDocument === 'bio' && (
                   <div className="space-y-4 font-sans text-xs text-neutral-800">
-                    <div className="flex justify-between items-start">
+                    <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                       <div>
-                        <h2 className="text-lg font-bold text-neutral-900 uppercase tracking-tight">KAI PAYNTER</h2>
-                        <p className="text-[10px] font-semibold text-neutral-500 uppercase tracking-widest leading-none mt-1">
-                          Founder of The Americas & Co-Founder of BearTiger Productions
-                        </p>
+                        <h2 className="text-2xl font-black text-neutral-900 uppercase tracking-tight">THE CREATOR</h2>
+                        <h3 className="text-xs font-semibold text-neutral-500 uppercase tracking-widest leading-none mt-1">
+                          KAI PAYNTER
+                        </h3>
                       </div>
                       <a 
-                        href="/creator_bio.pdf" 
+                        href="/Undone_Creator_Bio.pdf" 
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="inline-flex items-center space-x-1 px-3 py-1.5 bg-neutral-900 hover:bg-neutral-800 text-white rounded text-[10px] font-mono transition-colors border border-neutral-800"
@@ -616,31 +616,69 @@ export default function App() {
                     
                     <div className="h-[1px] w-full bg-neutral-200 my-2" />
                     
-                    <div className="space-y-3 leading-relaxed text-neutral-700">
-                      <p>
-                        <strong>Kai Paynter</strong> is a New York-native, Los Angeles-based artist and creative working across the United States and Australia. She is the founder of <em>The Americas, A Theatre Company</em> and co-founder of <em>BearTiger Productions</em>.
-                      </p>
-                      <p>
-                        An MFA graduate of the University of California, Irvine (summa cum laude) and BA (Honors) in Political Science from Purdue University, Kai trained under world-renowned theatre director Robert Cohen and began her career as a featured soloist with PMO, performing internationally and on PBS holiday specials, including at Neil Armstrong's Hall of Fame induction.
-                      </p>
-                      <p>
-                        Her theatre work includes the world premiere of Neil LaBute’s <em>The Furies</em> and the Australian premiere of <em>If I Needed Someone</em>, a self-directed two-hander that received critical acclaim: <em>"Sydney will see If I Needed Someone again and again, but perhaps never as contained or personal, with such tight direction and intense acting."</em>
-                      </p>
-                      <p>
-                        Her producing, writing, and directing slate spans original and classical work across stage, television, music videos, and actor showcases, including ongoing collaborations with Neil LaBute on projects such as <em>The Money Shot</em> and <em>All the Ways to Say I Love You</em>.
-                      </p>
-                      <p>
-                        With on-screen credits in film and television, Kai has appeared on networks, including CBS's <em>Criminal Minds</em> opposite Joe Mantegna, and in campaigns for Apple, Honda, and Boost Mobile, among others. Her portrayal of Abigail in <em>The Crucible</em> was featured in US Airways Inflight Magazine, which highlighted UC Irvine as the "#1 training institution for young creative talent."
-                      </p>
-                      <p>
-                        Kai remains a sought-after industry figure working with emerging and established talent from programs such as Australian Idol, supporting their transition into theatre and television. She has placed artists into programs at Yale School of Drama, Columbia University, and NYU's Tisch, and is regularly engaged by leading casting directors and talent management to prepare high-profile artists for the American film and television markets.
-                      </p>
-                      <p>
-                        More recently, Kai received the Sydney S+S Festival Awards for Best Director and Best Play. Her work is defined by rigorous craft, elevated performances, and character-driven storytelling with global appeal.
-                      </p>
-                      <p className="font-semibold pt-1 text-neutral-900">
-                        Portfolio: www.BearTigerProductions.com
-                      </p>
+                    {/* Balanced Columns: Left is Portrait, Right is Biography Content */}
+                    <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start pt-2">
+                      
+                      {/* Left Column: Portrait */}
+                      <div className="md:col-span-5 space-y-2">
+                        <div className="relative aspect-[3/4] bg-neutral-100 border border-neutral-200 rounded-lg overflow-hidden flex items-center justify-center group shadow-sm">
+                          <img 
+                            src="/kai_paynter.jpg" 
+                            alt="Kai Paynter Portrait"
+                            className="w-full h-full object-cover"
+                            onError={(e) => {
+                              // Elegant fallback if they haven't uploaded kai_paynter.jpg to public/ folder yet
+                              e.target.onerror = null;
+                              e.target.style.display = 'none';
+                              e.target.parentNode.innerHTML = `
+                                <div class="text-center p-6 space-y-2">
+                                  <div class="w-10 h-10 rounded-full bg-neutral-200 flex items-center justify-center text-neutral-400 mx-auto">
+                                    <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2">
+                                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                                      <circle cx="12" cy="7" r="4" />
+                                    </svg>
+                                  </div>
+                                  <p class="text-[10px] font-mono text-neutral-400 leading-tight">
+                                    [ Place image inside public/kai_paynter.jpg ]
+                                  </p>
+                                </div>
+                              `;
+                            }}
+                          />
+                        </div>
+                        <p className="text-[9px] text-center font-mono text-neutral-400 uppercase tracking-widest">
+                          Kai Paynter
+                        </p>
+                      </div>
+
+                      {/* Right Column: Biography Copy */}
+                      <div className="md:col-span-7 space-y-3 leading-relaxed text-neutral-700">
+                        <p>
+                          <strong>Kai Paynter</strong> is a New York-native, Los Angeles-based artist and creative working across the United States and Australia. She is the founder of <em>The Americas, A Theatre Company</em> and co-founder of <em>BearTiger Productions</em>.
+                        </p>
+                        <p>
+                          An MFA graduate of the University of California, Irvine (summa cum laude) and BA (Honors) in Political Science from Purdue University, Kai trained under world-renowned theatre director Robert Cohen and began her career as a featured soloist with PMO, performing internationally and on PBS holiday specials, including at Neil Armstrong's Hall of Fame induction.
+                        </p>
+                        <p>
+                          Her theatre work includes the world premiere of Neil LaBute’s <em>The Furies</em> and the Australian premiere of <em>If I Needed Someone</em>, a self-directed two-hander that received critical acclaim: <em>"Sydney will see If I Needed Someone again and again, but perhaps never as contained or personal, with such tight direction and intense acting."</em>
+                        </p>
+                        <p>
+                          Her producing, writing, and directing slate spans original and classical work across stage, television, music videos, and actor showcases, including ongoing collaborations with Neil LaBute on projects such as <em>The Money Shot</em> and <em>All the Ways to Say I Love You</em>.
+                        </p>
+                        <p>
+                          With on-screen credits in film and television, Kai has appeared on networks, including CBS's <em>Criminal Minds</em> opposite Joe Mantegna, and in campaigns for Apple, Honda, and Boost Mobile, among others. Her portrayal of Abigail in <em>The Crucible</em> was featured in US Airways Inflight Magazine, which highlighted UC Irvine as the "#1 training institution for young creative talent."
+                        </p>
+                        <p>
+                          Kai remains a sought-after industry figure working with emerging and established talent from programs such as Australian Idol, supporting their transition into theatre and television. She has placed artists into programs at Yale School of Drama, Columbia University, and NYU's Tisch, and is regularly engaged by leading casting directors and talent management to prepare high-profile artists for the American film and television markets.
+                        </p>
+                        <p>
+                          More recently, Kai received the Sydney S+S Festival Awards for Best Director and Best Play. Her work is defined by rigorous craft, elevated performances, and character-driven storytelling with global appeal.
+                        </p>
+                        <p className="font-semibold pt-1 text-neutral-900 border-t border-neutral-100">
+                          Portfolio: www.BearTigerProductions.com
+                        </p>
+                      </div>
+
                     </div>
                   </div>
                 )}
