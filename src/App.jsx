@@ -604,7 +604,7 @@ export default function App() {
                         </h3>
                       </div>
                       <a 
-                        href="/Undone_Creator_Bio.pdf" 
+                        href="/undone_creator_bio.pdf" 
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="inline-flex items-center space-x-1 px-3 py-1.5 bg-neutral-900 hover:bg-neutral-800 text-white rounded text-[10px] font-mono transition-colors border border-neutral-800"
