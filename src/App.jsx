@@ -166,7 +166,7 @@ export default function App() {
         {/* Executive Direct Link Tree Stack */}
         <div className="space-y-3">
           
-          {/* Link: Teaser Trailer (UNLOCKED - PUBLIC) */}
+          {/* Link 1: Watch Teaser Trailer (PUBLIC) */}
           <button 
             onClick={() => setActiveVideo('teaser')}
             className="w-full p-5 rounded-xl bg-neutral-900/40 border border-neutral-900 hover:border-amber-500/30 hover:bg-neutral-900/80 transition-all flex items-center justify-between group"
@@ -180,13 +180,13 @@ export default function App() {
                   <h3 className="font-bold text-white text-sm tracking-tight uppercase">Watch Teaser Trailer</h3>
                   <span className="text-[9px] font-mono bg-neutral-800 text-neutral-400 px-1.5 py-0.5 rounded uppercase tracking-wider">{"Public Access"}</span>
                 </div>
-                <p className="text-neutral-500 text-xs">Short dynamic mood conceptual piece</p>
+                <p className="text-neutral-500 text-xs">2:30 minute promotional trailer</p>
               </div>
             </div>
             <Play size={14} fill="currentColor" className="text-neutral-600 group-hover:text-amber-400 transition-colors" />
           </button>
 
-          {/* Link: BTS Trailer (UNLOCKED - PUBLIC) */}
+          {/* Link 2: Watch BTS Trailer (PUBLIC) */}
           <button 
             onClick={() => setActiveVideo('bts')}
             className="w-full p-5 rounded-xl bg-neutral-900/40 border border-neutral-900 hover:border-amber-500/30 hover:bg-neutral-900/80 transition-all flex items-center justify-between group"
@@ -197,16 +197,16 @@ export default function App() {
               </div>
               <div className="text-left">
                 <div className="flex items-center space-x-2">
-                  <h3 className="font-bold text-white text-sm tracking-tight uppercase">Watch Behind-The-Scenes</h3>
+                  <h3 className="font-bold text-white text-sm tracking-tight uppercase">Watch BTS Trailer</h3>
                   <span className="text-[9px] font-mono bg-neutral-800 text-neutral-400 px-1.5 py-0.5 rounded uppercase tracking-wider">{"Public Access"}</span>
                 </div>
-                <p className="text-neutral-500 text-xs">Interviews, table reads, & concept prep reels</p>
+                <p className="text-neutral-500 text-xs">Interviews, concepts, and prep</p>
               </div>
             </div>
             <Play size={14} fill="currentColor" className="text-neutral-600 group-hover:text-amber-400 transition-colors" />
           </button>
 
-          {/* Link: Series Bible (LOCKED) */}
+          {/* Link 3: View Series Bible (LOCKED) */}
           <button 
             onClick={() => handleProtectedAction('document', 'bible')}
             className="w-full p-5 rounded-xl bg-neutral-900/40 border border-neutral-900 hover:border-amber-500/30 hover:bg-neutral-900/80 transition-all flex items-center justify-between group relative overflow-hidden"
@@ -230,7 +230,7 @@ export default function App() {
             <ExternalLink size={14} className="text-neutral-600 group-hover:text-amber-400 transition-colors" />
           </button>
 
-          {/* Link: One-Sheet (LOCKED) */}
+          {/* Link 4: View One-sheet (LOCKED) */}
           <button 
             onClick={() => handleProtectedAction('document', 'onesheet')}
             className="w-full p-5 rounded-xl bg-neutral-900/40 border border-neutral-900 hover:border-amber-500/30 hover:bg-neutral-900/80 transition-all flex items-center justify-between group relative overflow-hidden"
@@ -241,7 +241,7 @@ export default function App() {
               </div>
               <div className="text-left">
                 <div className="flex items-center space-x-2">
-                  <h3 className="font-bold text-white text-sm tracking-tight uppercase">View Series One-Sheet</h3>
+                  <h3 className="font-bold text-white text-sm tracking-tight uppercase">View One-sheet</h3>
                   {isUnlocked ? (
                     <Unlock size={12} className="text-emerald-500" />
                   ) : (
@@ -254,7 +254,7 @@ export default function App() {
             <ExternalLink size={14} className="text-neutral-600 group-hover:text-amber-400 transition-colors" />
           </button>
 
-          {/* Link: Pitch Deck (LOCKED) */}
+          {/* Link 5: View Pitch Deck (LOCKED) */}
           <button 
             onClick={() => handleProtectedAction('document', 'deck')}
             className="w-full p-5 rounded-xl bg-neutral-900/40 border border-neutral-900 hover:border-amber-500/30 hover:bg-neutral-900/80 transition-all flex items-center justify-between group relative overflow-hidden"
@@ -278,7 +278,7 @@ export default function App() {
             <ExternalLink size={14} className="text-neutral-600 group-hover:text-amber-400 transition-colors" />
           </button>
 
-          {/* Link: Episode 1A "The Party" Stakeholder Screener (LOCKED) */}
+          {/* Link 6: Episode 1A "The Party" (LOCKED) */}
           <button 
             onClick={() => handleProtectedAction('video', 'ep1')}
             className="w-full p-5 rounded-xl bg-neutral-900/40 border border-neutral-900 hover:border-amber-500/30 hover:bg-neutral-900/80 transition-all flex items-center justify-between group relative overflow-hidden"
@@ -296,13 +296,13 @@ export default function App() {
                     <Lock size={12} className="text-amber-400/80" />
                   )}
                 </div>
-                <p className="text-neutral-500 text-xs">45-minute stakeholder review cut, no public release</p>
+                <p className="text-neutral-500 text-xs">45 minute stakeholder review cut</p>
               </div>
             </div>
             <Play size={14} fill="currentColor" className="text-neutral-600 group-hover:text-amber-400 transition-colors" />
           </button>
 
-          {/* Link: Episode 1B "The Party" Festival Cut (LOCKED) */}
+          {/* Link 7: Episode 1B "The Party" (LOCKED) */}
           <button 
             onClick={() => handleProtectedAction('video', 'ep1b')}
             className="w-full p-5 rounded-xl bg-neutral-900/40 border border-neutral-900 hover:border-amber-500/30 hover:bg-neutral-900/80 transition-all flex items-center justify-between group relative overflow-hidden"
@@ -320,16 +320,16 @@ export default function App() {
                     <Lock size={12} className="text-amber-400/80" />
                   )}
                 </div>
-                <p className="text-neutral-500 text-xs">Produced 45-minute festival premier cut</p>
+                <p className="text-neutral-500 text-xs">45 minute festival premier cut</p>
               </div>
             </div>
             <Play size={14} fill="currentColor" className="text-neutral-600 group-hover:text-amber-400 transition-colors" />
           </button>
 
-          {/* Link: Pilot Script (UNLOCKED - PUBLIC) */}
+          {/* Link 8: Read Pilot Script (LOCKED) */}
           <button 
-            onClick={() => setActiveDocument('script')}
-            className="w-full p-5 rounded-xl bg-neutral-900/40 border border-neutral-900 hover:border-amber-500/30 hover:bg-neutral-900/80 transition-all flex items-center justify-between group"
+            onClick={() => handleProtectedAction('document', 'script')}
+            className="w-full p-5 rounded-xl bg-neutral-900/40 border border-neutral-900 hover:border-amber-500/30 hover:bg-neutral-900/80 transition-all flex items-center justify-between group relative overflow-hidden"
           >
             <div className="flex items-center space-x-4">
               <div className="p-3 rounded-lg bg-neutral-950 text-amber-400 group-hover:scale-105 transition-transform">
@@ -338,7 +338,11 @@ export default function App() {
               <div className="text-left">
                 <div className="flex items-center space-x-2">
                   <h3 className="font-bold text-white text-sm tracking-tight uppercase">Read Pilot Script</h3>
-                  <span className="text-[9px] font-mono bg-neutral-800 text-neutral-400 px-1.5 py-0.5 rounded uppercase tracking-wider">{"Public Access"}</span>
+                  {isUnlocked ? (
+                    <Unlock size={12} className="text-emerald-500" />
+                  ) : (
+                    <Lock size={12} className="text-amber-400/80" />
+                  )}
                 </div>
                 <p className="text-neutral-500 text-xs">Standard 60-page network outline</p>
               </div>
@@ -346,7 +350,7 @@ export default function App() {
             <ExternalLink size={14} className="text-neutral-600 group-hover:text-amber-400 transition-colors" />
           </button>
 
-          {/* Link: Creator Bio (UNLOCKED - PUBLIC) */}
+          {/* Link 9: Creator Biography (PUBLIC) */}
           <button 
             onClick={() => setActiveDocument('bio')}
             className="w-full p-5 rounded-xl bg-neutral-900/40 border border-neutral-900 hover:border-amber-500/30 hover:bg-neutral-900/80 transition-all flex items-center justify-between group"
@@ -357,7 +361,7 @@ export default function App() {
               </div>
               <div className="text-left">
                 <div className="flex items-center space-x-2">
-                  <h3 className="font-bold text-white text-sm tracking-tight uppercase">Creator Bio</h3>
+                  <h3 className="font-bold text-white text-sm tracking-tight uppercase">Creator Biography</h3>
                   <span className="text-[9px] font-mono bg-neutral-800 text-neutral-400 px-1.5 py-0.5 rounded uppercase tracking-wider">{"Public Access"}</span>
                 </div>
                 <p className="text-neutral-500 text-xs">Professional background and credentials</p>
