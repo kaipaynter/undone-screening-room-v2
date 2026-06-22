@@ -33,6 +33,24 @@ export default function App() {
   // Track what the user clicked before being prompted for a password
   const [pendingAction, setPendingAction] = useState(null); // { type: 'document'|'video', target: string }
 
+  // Video streaming mapping source
+  const getVideoSource = (videoKey) => {
+    switch (videoKey) {
+      case 'ep1':
+        // Episode 1A Google Drive file preview embed URL (prevents 403)
+        return 'https://drive.google.com/file/d/1Hj2uYR08gOQC0pzD354RNvhe08OpNxZf/preview';
+      case 'ep1b':
+        // Episode 1B Google Drive file preview embed URL (prevents 403)
+        return 'https://drive.google.com/file/d/11eS4xg933pewfrXYwRc0gvOo1rQ6g_79/preview';
+      case 'teaser':
+        return 'https://assets.mixkit.co/videos/preview/mixkit-city-lights-at-night-with-neon-signs-and-traffic-42999-large.mp4';
+      case 'bts':
+        return 'https://assets.mixkit.co/videos/preview/mixkit-hands-of-a-director-holding-a-movie-clapperboard-42993-large.mp4';
+      default:
+        return '';
+    }
+  };
+
   // BASE64 CONFIG PASSWORD:
   // "VU5ET05FMjAyNg==" decodes to "UNDONE2026"
   const ENCODED_PASS = "VU5ET05FMjAyNg==";
@@ -732,11 +750,37 @@ export default function App() {
               </button>
             </div>
 
-            {/* Simulated protected viewport */}
-            <div className="relative aspect-video bg-neutral-950 rounded-xl border border-neutral-800 overflow-hidden flex flex-col justify-center items-center text-center p-6 space-y-4 shadow-2xl select-none">
+            {/* Secure Player Frame with dynamic direct media streaming */}
+            <div className="secure-video-wrapper relative aspect-video bg-neutral-950 rounded-xl border border-neutral-800 overflow-hidden flex flex-col justify-center items-center shadow-2xl select-none">
               
+              {/* HTML5 Native Stream Player for direct files, or Secure Iframe for Google Drive */}
+              {(activeVideo === 'ep1' || activeVideo === 'ep1b') ? (
+                <div className="w-full h-full relative">
+                  {/* Embedded Iframe bypassing GDrive 403 blocks */}
+                  <iframe 
+                    src={getVideoSource(activeVideo)}
+                    className="w-full h-full border-0 rounded-xl"
+                    allow="autoplay"
+                    allowFullScreen
+                  />
+                  {/* Invisible Shield Layer placed to mask GDrive default download actions */}
+                  <div className="absolute top-0 right-0 w-32 h-14 bg-transparent pointer-events-auto z-30 cursor-not-allowed" title="Actions restricted on screener copy" />
+                </div>
+              ) : (
+                <video 
+                  key={activeVideo}
+                  src={getVideoSource(activeVideo)}
+                  controls
+                  autoPlay
+                  controlsList="nodownload noremoteplayback"
+                  disablePictureInPicture
+                  onContextMenu={(e) => e.preventDefault()}
+                  className="w-full h-full object-contain"
+                />
+              )}
+
               {/* Floating watermark */}
-              <div className="absolute inset-0 pointer-events-none flex flex-col justify-between p-6 text-neutral-500/20 font-mono text-[9px] sm:text-xs">
+              <div className="absolute inset-0 pointer-events-none flex flex-col justify-between p-6 text-neutral-500/20 font-mono text-[9px] sm:text-xs z-10">
                 <div className="flex justify-between">
                   <span>PREVIEW SCREENS</span>
                   <span>CONFIDENTIAL</span>
@@ -748,17 +792,6 @@ export default function App() {
                   <span>WGAW REGISTERED</span>
                   <span>PREVIEW CUT</span>
                 </div>
-              </div>
-
-              <div className="w-12 h-12 rounded-full bg-neutral-900 flex items-center justify-center text-amber-400 border border-neutral-800">
-                <Film size={20} />
-              </div>
-
-              <div className="space-y-1 max-w-sm">
-                <h4 className="text-white text-sm font-bold uppercase">SECURED VIDEO OUTLET</h4>
-                <p className="text-neutral-500 text-xs leading-relaxed">
-                  Confidential media playback configured for preview screening slots. Direct recording is disabled.
-                </p>
               </div>
 
             </div>
