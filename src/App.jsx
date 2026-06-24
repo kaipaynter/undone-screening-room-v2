@@ -937,7 +937,7 @@ export default function App() {
                           Kai remains a sought-after industry figure working with emerging and established talent from programs such as Australian Idol, supporting their transition into theatre and television. She has placed artists into programs at Yale School of Drama, Columbia University, and NYU's Tisch, and is regularly engaged by leading casting directors and talent management to prepare high-profile artists for the American film and television markets.
                         </p>
                         <p>
-                          Kai remains active on the live scene. More recently, she received the Sydney S+S Festival Awards for Best Director and Best Play. Her work is defined by rigorous craft, elevated performances, and character-driven storytelling with global appeal.
+                          More recently, she received the Sydney S+S Festival Awards for Best Director and Best Play. Her work is defined by rigorous craft, elevated performances, and character-driven storytelling with global appeal.
                         </p>
                         <p className="font-semibold pt-1 text-neutral-900 border-t border-neutral-100">
                           Portfolio: www.BearTigerProductions.com
