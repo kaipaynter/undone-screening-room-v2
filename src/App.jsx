@@ -12,7 +12,13 @@ import {
   Unlock,
   KeyRound,
   Eye,
-  AlertCircle
+  AlertCircle,
+  ChevronLeft,
+  ChevronRight,
+  Layers,
+  MapPin,
+  Music,
+  Download
 } from 'lucide-react';
 
 export default function App() {
@@ -20,6 +26,7 @@ export default function App() {
   const [activeDocument, setActiveDocument] = useState(null); // 'script', 'deck', 'onesheet', 'bible', 'bio'
   const [activeVideo, setActiveVideo] = useState(null); // 'teaser', 'bts', 'ep1', 'ep1b'
   const [deckPage, setDeckPage] = useState(0);
+  const [biblePage, setBiblePage] = useState(0);
 
   // Fallback states
   const [portraitError, setPortraitError] = useState(false);
@@ -33,14 +40,12 @@ export default function App() {
   // Track what the user clicked before being prompted for a password
   const [pendingAction, setPendingAction] = useState(null); // { type: 'document'|'video', target: string }
 
-  // Video streaming mapping source
+  // Video streaming mapping source (Handles 403 blocks with secure preview frames)
   const getVideoSource = (videoKey) => {
     switch (videoKey) {
       case 'ep1':
-        // Episode 1A Google Drive file preview embed URL (prevents 403)
         return 'https://drive.google.com/file/d/1Hj2uYR08gOQC0pzD354RNvhe08OpNxZf/preview';
       case 'ep1b':
-        // Episode 1B Google Drive file preview embed URL (prevents 403)
         return 'https://drive.google.com/file/d/11eS4xg933pewfrXYwRc0gvOo1rQ6g_79/preview';
       case 'teaser':
         return 'https://assets.mixkit.co/videos/preview/mixkit-city-lights-at-night-with-neon-signs-and-traffic-42999-large.mp4';
@@ -70,6 +75,7 @@ export default function App() {
       if (type === 'document') {
         setActiveDocument(target);
         if (target === 'deck') setDeckPage(0);
+        if (target === 'bible') setBiblePage(0);
       } else if (type === 'video') {
         setActiveVideo(target);
       }
@@ -98,6 +104,7 @@ export default function App() {
           if (pendingAction.type === 'document') {
             setActiveDocument(pendingAction.target);
             if (pendingAction.target === 'deck') setDeckPage(0);
+            if (pendingAction.target === 'bible') setBiblePage(0);
           } else if (pendingAction.type === 'video') {
             setActiveVideo(pendingAction.target);
           }
@@ -118,6 +125,206 @@ export default function App() {
     setInputPassword('');
     setPasswordError(false);
   };
+
+  // Structured Series Bible Pages (From Pages 1 to 16 text)
+  const seriesBiblePages = [
+    {
+      title: "SERIES BIBLE COVER",
+      subtitle: "UNDONE • ROMANTIC DRAMA",
+      section: "Overview",
+      content: (
+        <div className="space-y-4 font-sans text-neutral-800 text-xs md:text-sm">
+          <div className="bg-neutral-900 text-neutral-100 p-6 rounded-lg text-center space-y-2 mb-4">
+            <h4 className="text-3xl font-black tracking-widest text-white font-mono uppercase">U N D O N E</h4>
+            <p className="text-[10px] uppercase font-mono tracking-widest text-amber-400">BEARTIGER PRODUCTIONS</p>
+          </div>
+          <div className="grid grid-cols-2 gap-4 border-t border-neutral-100 pt-4 font-mono text-[11px] text-neutral-600">
+            <div>
+              <strong className="text-neutral-900 font-sans block text-xs">GENRE</strong>
+              <span>Romantic Drama</span>
+            </div>
+            <div>
+              <strong className="text-neutral-900 font-sans block text-xs">FORMAT</strong>
+              <span>Season 1: 10, 50-minute episodes</span>
+            </div>
+            <div className="col-span-2">
+              <strong className="text-neutral-900 font-sans block text-xs">SETTING</strong>
+              <span>Modern-day Hollywood, CA</span>
+            </div>
+          </div>
+          <div className="bg-neutral-50 p-4 rounded border border-neutral-200 mt-4 space-y-2">
+            <h5 className="font-bold text-neutral-900 text-[11px] uppercase tracking-wider font-mono">Tone References</h5>
+            <p className="italic text-neutral-700 leading-relaxed text-xs">
+              "The intimate realism of Netflix’s <strong className="font-semibold text-neutral-900">Love</strong> + the emotional excavation of Hulu’s <strong className="font-semibold text-neutral-900">Normal People</strong> + the cultural sharpness of HBO’s <strong className="font-semibold text-neutral-900">Insecure</strong>."
+            </p>
+          </div>
+          <p className="text-[9px] text-neutral-400 italic pt-6 leading-relaxed">
+            The Undone Series Bible is the original work of BearTiger Productions. No part of it may be reproduced, distributed, or transmitted in any form without prior written permission. ©2026 BearTiger Productions.
+          </p>
+        </div>
+      )
+    },
+    {
+      title: "VISION STATEMENT",
+      subtitle: "THE SPACES WE OCCUPY",
+      section: "Artistic Statement",
+      content: (
+        <div className="space-y-4 font-sans text-neutral-700 text-xs md:text-sm leading-relaxed">
+          <p>
+            <strong className="text-neutral-900">Undone</strong> is a story about the spaces we occupy—physical, emotional, and cultural—and the ways love demands we traverse them. Attraction can be electric but insufficient when unexamined histories collide. Hollywood offers glamour, but also intimacy: shared coffee, late-night music, small victories, and unspoken tension.
+          </p>
+          <p>
+            This series explores how trauma, race, family expectation, inherited and societal bias shape love. Kehlani and Jake are both right and both wrong. Their story isn't about fantasy. It's about real love in real life: messy, awkward, fragile, and occasionally devastatingly beautiful.
+          </p>
+          <div className="bg-amber-500/5 border-l-2 border-amber-500 p-3 my-2 text-xs text-neutral-950 font-medium">
+            This is not a "can interracial couples survive?" story. It is about emotional readiness vs emotional intensity, trauma, and how bias survives inside "good" people.
+          </div>
+        </div>
+      )
+    },
+    {
+      title: "TONE, STYLE & MOOD",
+      subtitle: "INTIMATE BUT CINEMATIC",
+      section: "Visuals & Palette",
+      content: (
+        <div className="space-y-3 font-sans text-neutral-700 text-xs md:text-sm leading-relaxed">
+          <p>
+            The tone is intimate but cinematic: long silences, hand-held closeness, conversations that linger beyond the punchline. This is a show about love that's not tidy, and about the courage required to choose it anyway.
+          </p>
+          <div className="grid grid-cols-2 gap-4 mt-2">
+            <div className="p-3 bg-amber-500/5 rounded border border-amber-500/10">
+              <strong className="text-neutral-900 font-bold block mb-1 text-[11px] uppercase tracking-wider font-mono">LA COLOR PALETTE</strong>
+              <span className="text-xs">Muted golds, warm ambers, soft shadows, intimate cozy interiors.</span>
+            </div>
+            <div className="p-3 bg-neutral-50 rounded border border-neutral-200">
+              <strong className="text-neutral-900 font-bold block mb-1 text-[11px] uppercase tracking-wider font-mono">INDIANA COLOR PALETTE</strong>
+              <span className="text-xs">Cool neutrals, grays, and blues; overcast skies, naturalistic lighting.</span>
+            </div>
+          </div>
+          <p className="text-[11px]">
+            <strong className="text-neutral-900">Cinematography:</strong> Handheld, naturalistic, long takes on small actions (coffee-making, folding laundry). Close framing on faces to capture microexpressions.
+          </p>
+        </div>
+      )
+    },
+    {
+      title: "KEHLANI BROOKS",
+      subtitle: "CHICAGO-BORN • BLACK AMERICAN, FEMALE",
+      section: "Characters",
+      content: (
+        <div className="space-y-3 font-sans text-neutral-700 text-xs md:text-sm leading-relaxed">
+          <div className="flex gap-4 items-start">
+            <div className="flex-1 space-y-2">
+              <p>
+                <strong className="text-neutral-900 font-bold">Age:</strong> 28-32. Museum cleaner by day at LACMA, painter by night. Heady, hyper-independent, trendy but effortless. Pretty in a self-possessed, unweaponized way.
+              </p>
+              <p>
+                Left home after being SA'd by one of her mother's boyfriends. Has not seen her siblings since leaving and carries deep guilt. Guarded privately. Craves safety but distrusts permanence, using detachment as protection.
+              </p>
+            </div>
+          </div>
+          <div className="grid grid-cols-2 gap-2 pt-2 border-t border-neutral-100 text-xs font-mono">
+            <div><strong>CORE WANT:</strong> To be chosen and protected.</div>
+            <div><strong>CORE FEAR:</strong> Love bringing abandonment.</div>
+          </div>
+        </div>
+      )
+    },
+    {
+      title: "JAKE KOZLOWICZ",
+      subtitle: "RURAL INDIANA • CAUCASIAN AMERICAN, MALE",
+      section: "Characters",
+      content: (
+        <div className="space-y-3 font-sans text-neutral-700 text-xs md:text-sm leading-relaxed">
+          <p>
+            <strong className="text-neutral-900 font-bold">Age:</strong> 25-33. Farmer with generational land, understated wealth and understated confidence. Soft-spoken, handsome in a grounded, unassuming way. Tactile: builds, fixes, works with his hands.
+          </p>
+          <p>
+            An aspiring musician pursuing a music career in Hollywood. Comes from a small, emotionally stable family. Looking to build a family, not just a relationship. Steady, protective by instinct rather than ego. Unfamiliar with trauma at Kehlani's depth and often naive about systemic realities.
+          </p>
+          <div className="grid grid-cols-2 gap-2 pt-2 border-t border-neutral-100 text-xs font-mono">
+            <div><strong>CORE WANT:</strong> A peaceful, lasting partnership.</div>
+            <div><strong>CORE FEAR:</strong> Loving someone who won't let him in.</div>
+          </div>
+        </div>
+      )
+    },
+    {
+      title: "EPISODES 1 - 3",
+      subtitle: "SEASON ONE PATHWAY",
+      section: "Episodic Outline",
+      content: (
+        <div className="space-y-4 font-sans text-neutral-700 text-xs md:text-sm leading-relaxed">
+          <div>
+            <strong className="text-neutral-900 font-bold block uppercase tracking-wider text-[11px] font-mono">EPISODE 1: "THE PARTY"</strong>
+            <p className="text-xs text-neutral-600 mt-0.5">
+              Immediate chemistry at a Hollywood party turns a one-night encounter into three. Kehlani refuses to label it "dating" and attempts to end it, convinced Jake will disappear. Jake accidentally admits he is "in love" after trying weed for the first time.
+            </p>
+          </div>
+          <div>
+            <strong className="text-neutral-900 font-bold block uppercase tracking-wider text-[11px] font-mono">EPISODE 2: "EXPOSURE"</strong>
+            <p className="text-xs text-neutral-600 mt-0.5">
+              Jake is living with Kehlani. A double date with museum co-worker Kaylee exposes cultural and racial friction. Kehlani is unsure about the match and runs into her ex, Darrell, at a book signing.
+            </p>
+          </div>
+          <div>
+            <strong className="text-neutral-900 font-bold block uppercase tracking-wider text-[11px] font-mono">EPISODE 3: "SOFT PLACES"</strong>
+            <p className="text-xs text-neutral-600 mt-0.5">
+              Jake asks Kehlani home to Indiana for Thanksgiving. Kehlani feels alienated at Jake's CMA music showcase and leaves early, causing a deep fight about cultural positioning and safety.
+            </p>
+          </div>
+        </div>
+      )
+    },
+    {
+      title: "EPISODES 4 - 6",
+      subtitle: "SEASON ONE PATHWAY",
+      section: "Episodic Outline",
+      content: (
+        <div className="space-y-4 font-sans text-neutral-700 text-xs md:text-sm leading-relaxed">
+          <div>
+            <strong className="text-neutral-900 font-bold block uppercase tracking-wider text-[11px] font-mono">EPISODE 4: "MAIN CHARACTER ENERGY"</strong>
+            <p className="text-xs text-neutral-600 mt-0.5">
+              Jake stays with cousin Matt. Kaylee spirals into cocaine abuse, telling Kehlani: "You push men away when they're right." Kehlani meets Darrell at a bar and feels instantly understood.
+            </p>
+          </div>
+          <div>
+            <strong className="text-neutral-900 font-bold block uppercase tracking-wider text-[11px] font-mono">EPISODE 5: "HOMEGROWN"</strong>
+            <p className="text-xs text-neutral-600 mt-0.5">
+              They road trip to Indiana for Thanksgiving. Jake's mother is taken aback. Coded racial remarks build tension; Jake minimizes them in private. They flee to an Airbnb and have an intense fight.
+            </p>
+          </div>
+          <div>
+            <strong className="text-neutral-900 font-bold block uppercase tracking-wider text-[11px] font-mono">EPISODE 6: "STAY"</strong>
+            <p className="text-xs text-neutral-600 mt-0.5">
+              Back in LA, they sleep apart. Matt drops a crude warning to Jake ("What if the baby comes out dark?"). Kehlani opens up to her hair braider and meets Darrell. Kehlani and Jake argue in a park and break up.
+            </p>
+          </div>
+        </div>
+      )
+    },
+    {
+      title: "EPISODES 7 - 10",
+      subtitle: "SEASON ONE FINALE PATHWAY",
+      section: "Episodic Outline",
+      content: (
+        <div className="space-y-4 font-sans text-neutral-700 text-xs md:text-sm leading-relaxed">
+          <div>
+            <strong className="text-neutral-900 font-bold block uppercase tracking-wider text-[11px] font-mono">EPISODE 7 & 8: "MATCHED" & "BLOODLINES"</strong>
+            <p className="text-xs text-neutral-600 mt-0.5">
+              Kehlani dates Darrell, finding effortless cultural ease. Jake struggles back in Indiana. When Jake returns to LA, he spots Darrell arriving at Kehlani's apartment and leaves.
+            </p>
+          </div>
+          <div>
+            <strong className="text-neutral-900 font-bold block uppercase tracking-wider text-[11px] font-mono">EPISODE 9 & 10: "PARTING LINES" & "SOMEWHERE SOFT"</strong>
+            <p className="text-xs text-neutral-600 mt-0.5">
+              Jake's acoustic breakup song goes viral. Months later, Jake runs into Kehlani at Jackie's hair salon. They speak honestly for the first time without defensiveness. Jake leaves, and Kehlani steps back inside, toward herself.
+            </p>
+          </div>
+        </div>
+      )
+    }
+  ];
 
   // Pitch Deck slides for the interactive inline PDF viewer
   const pitchDeckSlides = [
@@ -196,7 +403,7 @@ export default function App() {
               <div className="text-left">
                 <div className="flex items-center space-x-2">
                   <h3 className="font-bold text-white text-sm tracking-tight uppercase">Watch Teaser Trailer</h3>
-                  <span className="text-[9px] font-mono bg-neutral-800 text-neutral-400 px-1.5 py-0.5 rounded uppercase tracking-wider">{"Public Access"}</span>
+                  <span className="text-[9px] font-mono bg-neutral-800 text-neutral-400 px-1.5 py-0.5 rounded uppercase tracking-wider">Public Access</span>
                 </div>
                 <p className="text-neutral-500 text-xs">2:30 minute promotional trailer</p>
               </div>
@@ -216,7 +423,7 @@ export default function App() {
               <div className="text-left">
                 <div className="flex items-center space-x-2">
                   <h3 className="font-bold text-white text-sm tracking-tight uppercase">Watch BTS Trailer</h3>
-                  <span className="text-[9px] font-mono bg-neutral-800 text-neutral-400 px-1.5 py-0.5 rounded uppercase tracking-wider">{"Public Access"}</span>
+                  <span className="text-[9px] font-mono bg-neutral-800 text-neutral-400 px-1.5 py-0.5 rounded uppercase tracking-wider">Public Access</span>
                 </div>
                 <p className="text-neutral-500 text-xs">Interviews, concepts, and prep</p>
               </div>
@@ -380,7 +587,7 @@ export default function App() {
               <div className="text-left">
                 <div className="flex items-center space-x-2">
                   <h3 className="font-bold text-white text-sm tracking-tight uppercase">Creator Biography</h3>
-                  <span className="text-[9px] font-mono bg-neutral-800 text-neutral-400 px-1.5 py-0.5 rounded uppercase tracking-wider">{"Public Access"}</span>
+                  <span className="text-[9px] font-mono bg-neutral-800 text-neutral-400 px-1.5 py-0.5 rounded uppercase tracking-wider font-semibold">Public Access</span>
                 </div>
                 <p className="text-neutral-500 text-xs">Professional background and credentials</p>
               </div>
@@ -587,19 +794,57 @@ export default function App() {
                   </div>
                 )}
 
-                {/* Series Bible View */}
+                {/* Series Bible Interactive Multi-page View */}
                 {activeDocument === 'bible' && (
-                  <div className="space-y-4 font-sans text-xs text-neutral-800 max-w-xl mx-auto">
-                    <h2 className="text-lg font-bold text-neutral-900 uppercase tracking-tight">SERIES LOGISTICAL BIBLE</h2>
-                    <p className="leading-relaxed">
-                      <strong>Format:</strong> 10-Episode Limited Comedy-Drama Series (45-Minute Chapters)
-                    </p>
-                    <p className="leading-relaxed">
-                      <strong>Tone Focus:</strong> Intimacy, character-driven dialogues, and authentic comedic beats contrasting with social commentaries about class divides in the modern age.
-                    </p>
-                    <p className="leading-relaxed">
-                      <strong>Setting:</strong> Set in highly textured neighborhood spaces around Los Angeles (Los Feliz, Franklin Village, Griffith Park) to capture authentic production values efficiently.
-                    </p>
+                  <div className="space-y-6 py-4 font-sans max-w-2xl mx-auto text-neutral-800">
+                    <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-neutral-200 pb-4">
+                      <div>
+                        <span className="text-[9px] font-mono uppercase tracking-widest text-amber-600 font-bold">
+                          {seriesBiblePages[biblePage].section}
+                        </span>
+                        <h3 className="text-2xl font-black text-neutral-900 tracking-tight leading-none uppercase">
+                          {seriesBiblePages[biblePage].title}
+                        </h3>
+                        <p className="text-[10px] text-neutral-400 tracking-wider font-mono mt-1">
+                          {seriesBiblePages[biblePage].subtitle}
+                        </p>
+                      </div>
+                      
+                      <a 
+                        href="/undone_series_bible.pdf" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center space-x-1.5 px-3 py-1.5 bg-neutral-900 hover:bg-neutral-850 text-white rounded text-[10px] font-mono transition-colors border border-neutral-800"
+                      >
+                        <Download size={10} />
+                        <span>Open Bible PDF</span>
+                      </a>
+                    </div>
+
+                    {/* Actual page dynamic render */}
+                    <div className="min-h-[280px] py-2">
+                      {seriesBiblePages[biblePage].content}
+                    </div>
+
+                    <div className="flex justify-between items-center pt-4 border-t border-neutral-100">
+                      <span className="text-xs text-neutral-500 font-mono">
+                        Page {biblePage + 1} of {seriesBiblePages.length}
+                      </span>
+                      <div className="flex gap-2">
+                        <button 
+                          onClick={() => setBiblePage(prev => Math.max(0, prev - 1))}
+                          className="px-3 py-1 bg-neutral-100 hover:bg-neutral-200 border border-neutral-200 text-xs font-bold rounded"
+                        >
+                          Prev
+                        </button>
+                        <button 
+                          onClick={() => setBiblePage(prev => Math.min(seriesBiblePages.length - 1, prev + 1))}
+                          className="px-3 py-1 bg-neutral-100 hover:bg-neutral-200 border border-neutral-200 text-xs font-bold rounded"
+                        >
+                          Next
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 )}
 
@@ -627,7 +872,7 @@ export default function App() {
                         </h3>
                       </div>
                       <a 
-                        href="/undone_creator_bio_v2.pdf" 
+                        href="/undone_creator_bio_v3.pdf" 
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="inline-flex items-center space-x-1.5 px-3 py-1.5 bg-neutral-900 hover:bg-neutral-850 text-white rounded text-[10px] font-mono transition-colors border border-neutral-800"
