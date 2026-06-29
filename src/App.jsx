@@ -129,13 +129,13 @@ export default function App() {
     {
       title: "Core Conflict",
       subtitle: "Where Worlds Collide",
-      content: "When a guarded city girl from Chicago and an idealistic Southern country boy fall fast in Los Angeles, they are forced to confront inherited biases, family expectations, and trauma.",
+      content: "The characters are forced to confront inherited biases, family expectations, trauma, belonging, career and identity",
       meta: "Slide 2: Dynamic"
     },
     {
       title: "Tone & Style",
       subtitle: "Raw & Intimate",
-      content: "Contrasting sweeping, neon-drenched cinematography with hand-held close-ups. A sonic palette merging alternative R&B with rustic indie-folk music.",
+      content: "Contrasting sweeping, warm and cool cinematography with hand-held close-ups. A sonic palette merging alternative R&B with rustic indie-folk music.",
       meta: "Slide 3: Aesthetic"
     },
     {
@@ -220,10 +220,10 @@ export default function App() {
         {/* Executive Direct Link Tree Stack */}
         <div className="space-y-3 pt-4">
           
-          {/* Link 1: Watch Teaser Trailer (PUBLIC) */}
+          {/* Link 1: Watch Teaser Trailer (LOCKED) */}
           <button 
-            onClick={() => setActiveVideo('teaser')}
-            className="w-full p-5 rounded-xl bg-neutral-900/40 border border-neutral-900 hover:border-amber-500/30 hover:bg-neutral-900/80 transition-all flex items-center justify-between group"
+            onClick={() => handleProtectedAction('video', 'teaser')}
+            className="w-full p-5 rounded-xl bg-neutral-900/40 border border-neutral-900 hover:border-amber-500/30 hover:bg-neutral-900/80 transition-all flex items-center justify-between group relative overflow-hidden"
           >
             <div className="flex items-center space-x-4">
               <div className="p-3 rounded-lg bg-neutral-950 text-amber-400 group-hover:scale-105 transition-transform">
@@ -232,7 +232,11 @@ export default function App() {
               <div className="text-left">
                 <div className="flex items-center space-x-2">
                   <h3 className="font-bold text-white text-sm tracking-tight uppercase">Watch Teaser Trailer</h3>
-                  <span className="text-[9px] font-mono bg-neutral-800 text-neutral-400 px-1.5 py-0.5 rounded uppercase tracking-wider">Public Access</span>
+                  {isUnlocked ? (
+                    <Unlock size={12} className="text-emerald-500" />
+                  ) : (
+                    <Lock size={12} className="text-amber-400/80" />
+                  )}
                 </div>
                 <p className="text-neutral-500 text-xs">2:30 minute promotional trailer</p>
               </div>
