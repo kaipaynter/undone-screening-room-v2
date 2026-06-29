@@ -121,7 +121,7 @@ export default function App() {
   const pitchDeckSlides = [
     {
       title: "UNDONE",
-      subtitle: "A Romantic Comedy-Drama Series",
+      subtitle: "A Romantic Drama Series",
       content: "In modern-day Los Angeles, Kehlani, a guarded artist, and Jake, an aspiring musician, fall hard and fast. But when family expectations, cultural differences, and unresolved trauma begin to surface, they must decide whether their connection is strong enough to bridge the worlds that shaped them.",
       isItalic: true,
       meta: "Slide 1: Title & Concept"
@@ -165,37 +165,33 @@ export default function App() {
               UN<span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-200">DONE</span>
             </h1>
             <p className="text-xs font-semibold tracking-[0.3em] text-amber-400 uppercase">
-              A New Romantic Comedy-Drama Series
+              A New Romantic Drama Series
             </p>
           </div>
         </div>
 
         {/* Cinematic Key Art Poster Card */}
         <div className="w-full relative rounded-2xl border border-neutral-900 bg-neutral-950 overflow-hidden shadow-2xl group aspect-[16/10] md:aspect-[21/10] transition-all duration-500 hover:border-neutral-800">
-          {/* Subtle animated/gradient backgrounds */}
-          <div className="absolute inset-0 bg-gradient-to-r from-neutral-950 via-neutral-950/80 to-amber-500/10 z-10" />
-          <div className="absolute inset-0 bg-noise opacity-[0.08] mix-blend-overlay pointer-events-none" />
+          {/* Key Art Background Image */}
+          <img 
+            src="/key_artwork.jpg" 
+            alt="UNDONE Official Key Art"
+            className="absolute inset-0 w-full h-full object-cover object-center select-none group-hover:scale-[1.02] transition-transform duration-700 ease-out"
+          />
+          {/* Subtle animated/gradient backgrounds over key art for design uniformity */}
+          <div className="absolute inset-0 bg-gradient-to-r from-neutral-950 via-neutral-950/70 to-transparent z-10" />
+          <div className="absolute inset-0 bg-noise opacity-[0.06] mix-blend-overlay pointer-events-none" />
           
           {/* Ambient radial glows */}
           <div className="absolute -top-12 -left-12 w-64 h-64 bg-amber-500/10 rounded-full blur-[80px]" />
           <div className="absolute -bottom-12 -right-12 w-80 h-80 bg-purple-500/10 rounded-full blur-[100px]" />
-          
-          {/* Artwork graphic silhouette layer (Guitar + Cloud head) */}
-          <div className="absolute right-8 md:right-16 inset-y-0 w-1/3 flex items-center justify-center opacity-30 group-hover:opacity-45 transition-opacity duration-700">
-            <svg viewBox="0 0 100 100" className="h-full w-full text-amber-500/20" fill="currentColor">
-              {/* Cloud Head silhouette */}
-              <path d="M40,75 C30,75 22,67 22,57 C22,48 29,40 38,39 C41,25 54,16 68,22 C80,27 86,41 82,53 C87,55 91,61 90,67 C89,72 84,75 79,75 Z" fillOpacity="0.15" />
-              {/* Acoustic guitar outline silhouette */}
-              <path d="M48,82 L52,82 L52,45 L56,45 L56,42 L52,42 L52,35 C52,32 48,32 48,35 L48,42 L44,42 L44,45 L48,45 Z" fillOpacity="0.3" />
-            </svg>
-          </div>
 
           {/* Content overlay */}
           <div className="absolute inset-0 z-20 p-6 md:p-8 flex flex-col justify-between">
             {/* Top Tag */}
             <div className="flex items-center space-x-2">
               <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
-              <span className="text-[9px] font-mono tracking-[0.2em] uppercase text-neutral-400">Official Key Art</span>
+              <span className="text-[9px] font-mono tracking-[0.2em] uppercase text-neutral-300">Official Key Art</span>
             </div>
 
             {/* Main typography */}
@@ -204,13 +200,13 @@ export default function App() {
               <h2 className="text-4xl md:text-5xl font-black tracking-tighter text-white leading-none">
                 UN<span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-200">DONE</span>
               </h2>
-              <p className="text-[11px] md:text-xs font-serif italic text-neutral-300 leading-relaxed max-w-xs md:max-w-sm pt-1">
+              <p className="text-[11px] md:text-xs font-serif italic text-neutral-200 leading-relaxed max-w-xs md:max-w-sm pt-1">
                 "A guarded city-girl and an All-American boy fall fast in La La Land but can their spark bridge their worlds?"
               </p>
             </div>
 
             {/* Footer Meta info */}
-            <div className="flex items-center justify-between text-[8px] md:text-[9px] font-mono text-neutral-500">
+            <div className="flex items-center justify-between text-[8px] md:text-[9px] font-mono text-neutral-400">
               <span>© 2026 BEARTIGER PRODUCTIONS</span>
               <span>WGA WEST REGISTERED</span>
             </div>
@@ -288,10 +284,10 @@ export default function App() {
             <ExternalLink size={14} className="text-neutral-600 group-hover:text-amber-400 transition-colors" />
           </button>
 
-          {/* Link 4: View One-sheet (LOCKED) */}
+          {/* Link 4: View One-sheet (PUBLIC) */}
           <button 
-            onClick={() => handleProtectedAction('document', 'onesheet')}
-            className="w-full p-5 rounded-xl bg-neutral-900/40 border border-neutral-900 hover:border-amber-500/30 hover:bg-neutral-900/80 transition-all flex items-center justify-between group relative overflow-hidden"
+            onClick={() => setActiveDocument('onesheet')}
+            className="w-full p-5 rounded-xl bg-neutral-900/40 border border-neutral-900 hover:border-amber-500/30 hover:bg-neutral-900/80 transition-all flex items-center justify-between group"
           >
             <div className="flex items-center space-x-4">
               <div className="p-3 rounded-lg bg-neutral-950 text-amber-400 group-hover:scale-105 transition-transform">
@@ -300,11 +296,7 @@ export default function App() {
               <div className="text-left">
                 <div className="flex items-center space-x-2">
                   <h3 className="font-bold text-white text-sm tracking-tight uppercase">View One-sheet</h3>
-                  {isUnlocked ? (
-                    <Unlock size={12} className="text-emerald-500" />
-                  ) : (
-                    <Lock size={12} className="text-amber-400/80" />
-                  )}
+                  <span className="text-[9px] font-mono bg-neutral-800 text-neutral-400 px-1.5 py-0.5 rounded uppercase tracking-wider">Public Access</span>
                 </div>
                 <p className="text-neutral-500 text-xs">Logistical index & summary snapshot</p>
               </div>
@@ -538,7 +530,7 @@ export default function App() {
               <span className="text-[10px] font-mono uppercase bg-neutral-900 px-3 py-1 text-amber-400 rounded-full border border-neutral-800">
                 {activeDocument === 'script' && "SCREENPLAY PROOF"}
                 {activeDocument === 'deck' && "INTERACTIVE DECK"}
-                {activeDocument === 'bible' && "SERIES BIBLE EXTRACT | UNDONE • ROMANTIC COMEDY-DRAMA"}
+                {activeDocument === 'bible' && "SERIES BIBLE EXTRACT | UNDONE • ROMANTIC DRAMA"}
                 {activeDocument === 'onesheet' && "EXECUTIVE SUMMARY"}
                 {activeDocument === 'bio' && "CREATOR BIO DOCUMENT"}
               </span>
@@ -639,7 +631,7 @@ export default function App() {
                           UNDONE
                         </h3>
                         <p className="text-[10px] text-neutral-400 tracking-wider font-mono mt-1">
-                          UNDONE • ROMANTIC COMEDY-DRAMA
+                          UNDONE • ROMANTIC DRAMA
                         </p>
                       </div>
                       
@@ -659,7 +651,7 @@ export default function App() {
                       <div className="space-y-3">
                         <div>
                           <strong className="text-neutral-900 font-sans block text-xs uppercase tracking-wider font-bold">GENRE</strong>
-                          <span>Romantic Comedy-Drama</span>
+                          <span>Romantic Drama</span>
                         </div>
                         <div>
                           <strong className="text-neutral-900 font-sans block text-xs uppercase tracking-wider font-bold">FORMAT</strong>
@@ -707,7 +699,7 @@ export default function App() {
                     
                     <div className="space-y-4 text-neutral-700 leading-relaxed text-sm">
                       <p>
-                        <strong>Logistical Summary:</strong> UNDONE is a ready-to-package premier romantic comedy-drama with a completed pilot episode, multi-season bible summaries, visual pitches, and estimated pilot budgeting breakdowns.
+                        <strong>Logistical Summary:</strong> UNDONE is a ready-to-package premier romantic drama with a completed pilot episode, multi-season bible summaries, visual pitches, and estimated pilot budgeting breakdowns.
                       </p>
                       <p>
                         <strong>Target Audience:</strong> Core demographic adults 21-45; ideal fit for high-concept premium streaming, cable network options, or independent distribution partnerships.
@@ -798,7 +790,7 @@ export default function App() {
                         <p>
                           Kai remains active on the live scene. More recently, she received the Sydney S+S Festival Awards for Best Director and Best Play. Her work is defined by rigorous craft, elevated performances, and character-driven storytelling with global appeal.
                         </p>
-                        <p className="font-semibold pt-1 text-neutral-900 border-t border-neutral-100">
+                        <p className="font-semibold pt-1 text-neutral-950 border-t border-neutral-100">
                           Portfolio: www.BearTigerProductions.com
                         </p>
                       </div>
