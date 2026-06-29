@@ -191,7 +191,6 @@ export default function App() {
             {/* Top Tag */}
             <div className="flex items-center space-x-2">
               <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
-              <span className="text-[9px] font-mono tracking-[0.2em] uppercase text-neutral-300">Official Key Art</span>
             </div>
 
             {/* Main typography */}
@@ -200,9 +199,6 @@ export default function App() {
               <h2 className="text-4xl md:text-5xl font-black tracking-tighter text-white leading-none">
                 UN<span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-200">DONE</span>
               </h2>
-              <p className="text-[11px] md:text-xs font-serif italic text-neutral-200 leading-relaxed max-w-xs md:max-w-sm pt-1">
-                "A guarded city-girl and an All-American boy fall fast in La La Land but can their spark bridge their worlds?"
-              </p>
             </div>
 
             {/* Footer Meta info */}
