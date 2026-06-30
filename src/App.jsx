@@ -179,29 +179,12 @@ export default function App() {
             className="absolute inset-0 w-full h-full object-cover object-center select-none group-hover:scale-[1.01] transition-transform duration-700 ease-out"
           />
           {/* Subtle overlay gradients over key art for design uniformity and high typography legibility */}
-          <div className="absolute inset-0 bg-gradient-to-r from-neutral-950 via-neutral-950/60 to-transparent z-10" />
+          <div className="absolute inset-0 bg-gradient-to-r from-neutral-950 via-neutral-950/40 to-transparent z-10" />
           <div className="absolute inset-0 bg-noise opacity-[0.06] mix-blend-overlay pointer-events-none" />
           
           {/* Ambient radial glows */}
           <div className="absolute -top-12 -left-12 w-64 h-64 bg-amber-500/10 rounded-full blur-[80px]" />
           <div className="absolute -bottom-12 -right-12 w-80 h-80 bg-purple-500/10 rounded-full blur-[100px]" />
-
-          {/* Content overlay - Aligned vertically at the lower-left over dark space of artwork */}
-          <div className="absolute inset-0 z-20 p-8 md:p-12 flex flex-col justify-end items-start pb-16">
-            {/* Main typography container */}
-            <div className="space-y-1">
-              <span className="text-[10px] font-bold tracking-[0.4em] text-amber-400 block">WELCOME TO CALIFORNIA</span>
-              <h2 className="text-5xl md:text-6xl font-black tracking-tighter text-white leading-none uppercase">
-                UN<span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-200">DONE</span>
-              </h2>
-            </div>
-          </div>
-
-          {/* Absolute bottom copyright badge overlay */}
-          <div className="absolute bottom-6 left-8 right-8 flex items-center justify-between text-[8px] md:text-[9px] font-mono text-neutral-400 z-20 select-none opacity-80">
-            <span>© 2026 BEARTIGER PRODUCTIONS</span>
-            <span>WGA WEST REGISTERED</span>
-          </div>
         </div>
 
         {/* Executive Direct Link Tree Stack */}
