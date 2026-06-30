@@ -129,7 +129,7 @@ export default function App() {
     {
       title: "Core Conflict",
       subtitle: "Where Worlds Collide",
-      content: "The characters are forced to confront inherited biases, family expectations, trauma, belonging, career and identity",
+      content: "The characters are forced to confront inherited biases, family expectations, trauma, belonging, career and identity.",
       meta: "Slide 2: Dynamic"
     },
     {
@@ -527,7 +527,7 @@ export default function App() {
                   <div className="space-y-6 max-w-xl mx-auto">
                     <div className="text-center py-6 space-y-2">
                       <h2 className="text-2xl font-bold tracking-widest uppercase font-mono">U N D O N E</h2>
-                      <p className="text-[10px]">Written by Beartiger Creative Group</p>
+                      <p className="text-[10px]">Written by Kai Paynter & Ella Sullivan</p>
                     </div>
 
                     <div className="space-y-4 font-mono text-xs leading-relaxed">
@@ -764,7 +764,7 @@ export default function App() {
                         <p>
                           Kai remains active on the live scene. More recently, she received the Sydney S+S Festival Awards for Best Director and Best Play. Her work is defined by rigorous craft, elevated performances, and character-driven storytelling with global appeal.
                         </p>
-                        <p className="font-semibold pt-1 text-neutral-950 border-t border-neutral-100">
+                        <p className="font-semibold pt-1 text-neutral-900 border-t border-neutral-100">
                           Portfolio: www.BearTigerProductions.com
                         </p>
                       </div>
