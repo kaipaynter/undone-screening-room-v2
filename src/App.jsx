@@ -472,6 +472,7 @@ export default function App() {
                 <div className="flex items-center space-x-2 text-xs text-red-400 bg-red-500/10 p-2.5 rounded-lg border border-red-500/20">
                   <AlertCircle size={14} />
                   <span>Invalid credentials. Check configuration parameters.</span>
+", tracking-wide
                 </div>
               )}
 
@@ -669,7 +670,24 @@ export default function App() {
                 {/* One Sheet View */}
                 {activeDocument === 'onesheet' && (
                   <div className="space-y-6 font-sans text-xs text-neutral-800 max-w-xl mx-auto">
-                    <h2 className="text-lg font-bold text-neutral-900 uppercase tracking-tight border-b border-neutral-100 pb-1">PROJECT ONE-SHEET</h2>
+                    <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-neutral-200 pb-4">
+                      <div>
+                        <h2 className="text-lg font-bold text-neutral-900 uppercase tracking-tight">PROJECT ONE-SHEET</h2>
+                        <p className="text-[10px] text-neutral-400 tracking-wider font-mono mt-1">
+                          UNDONE • ROMANTIC DRAMA
+                        </p>
+                      </div>
+                      
+                      <a 
+                        href="/undone_one_sheet.pdf" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center space-x-1.5 px-3 py-1.5 bg-neutral-900 hover:bg-neutral-850 text-white rounded text-[10px] font-mono transition-colors border border-neutral-800 animate-pulse"
+                      >
+                        <Download size={10} />
+                        <span>Open One-sheet PDF</span>
+                      </a>
+                    </div>
                     
                     <div className="space-y-4 text-neutral-700 leading-relaxed text-sm">
                       <p>
@@ -697,7 +715,7 @@ export default function App() {
                         </h3>
                       </div>
                       <a 
-                        href="/undone_creator_bio_v3.pdf" 
+                        href="/undone_creator_bio.pdf" 
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="inline-flex items-center space-x-1.5 px-3 py-1.5 bg-neutral-900 hover:bg-neutral-850 text-white rounded text-[10px] font-mono transition-colors border border-neutral-800"
@@ -764,7 +782,7 @@ export default function App() {
                         <p>
                           Kai remains active on the live scene. More recently, she received the Sydney S+S Festival Awards for Best Director and Best Play. Her work is defined by rigorous craft, elevated performances, and character-driven storytelling with global appeal.
                         </p>
-                        <p className="font-semibold pt-1 text-neutral-900 border-t border-neutral-100">
+                        <p className="font-semibold pt-1 text-neutral-950 border-t border-neutral-100">
                           Portfolio: www.BearTigerProductions.com
                         </p>
                       </div>
