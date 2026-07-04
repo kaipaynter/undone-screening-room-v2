@@ -472,7 +472,6 @@ export default function App() {
                 <div className="flex items-center space-x-2 text-xs text-red-400 bg-red-500/10 p-2.5 rounded-lg border border-red-500/20">
                   <AlertCircle size={14} />
                   <span>Invalid credentials. Check configuration parameters.</span>
-", tracking-wide
                 </div>
               )}
 
@@ -762,28 +761,28 @@ export default function App() {
                       {/* Right Column: Biography Copy */}
                       <div className="md:col-span-7 space-y-3 leading-relaxed text-neutral-700 font-sans">
                         <p>
-                          <strong>Kai Paynter</strong> is a New York-native, Los Angeles-based artist and creative working across the United States and Australia. She is the founder of <em>The Americas, A Theatre Company</em> and co-founder of <em>BearTiger Productions</em>.
+                          <strong>KAI PAYNTER</strong> is a New York-native, Los Angeles-based artist and creative working across the United States and Australia. She is the founder of <em>The Americas, A Theatre Company</em> and co-founder of <em>BearTiger Productions</em>.
                         </p>
                         <p>
-                          An MFA graduate of the University of California, Irvine (summa cum laude) and BA (Honors) in Political Science from Purdue University, Kai trained under world-renowned theatre director Robert Cohen and began her career as a featured soloist with PMO, performing internationally and on PBS holiday specials, including at Neil Armstrong's Hall of Fame induction.
+                          An MFA graduate of the University of California, Irvine (summa cum laude) and BA (Honors) in Political Science from Purdue University, Kai trained under world-renowned theatre director Robert Cohen and began her career as a featured soloist with PMO, performing internationally and on PBS holiday specials, including at Neil Armstrong’s Hall of Fame induction.
                         </p>
                         <p>
-                          Her theatre work includes the world premiere of Neil LaBute’s <em>The Furies</em> and the Australian premiere of <em>If I Needed Someone</em>, a self-directed two-hander that received critical acclaim: <em>"Sydney will see If I Needed Someone again and again, but perhaps never as contained or personal, with such tight direction and intense acting."</em>
+                          Her theatre credits reflect a diverse body of work, including the world premiere of Neil LaBute's <em>THE FURIES</em> and the Australian premiere of <em>IF I NEEDED SOMEONE</em>, a self-directed two-hander that received critical acclaim: “Sydney will see If I Needed Someone again and again, but perhaps never as contained or personal, with such tight direction and intense acting.”
                         </p>
                         <p>
-                          Her producing, writing, and directing slate spans original and classical work across stage, television, music videos, and actor showcases, including ongoing collaborations with Neil LaBute on projects such as <em>The Money Shot</em> and <em>All the Ways to Say I Love You</em>.
+                          Her producing and writing/directing slate spans original and classical work across stage and screen, including ongoing collaborations with Neil LaBute on projects such as <em>THE MONEY SHOT</em> and <em>ALL THE WAYS TO SAY I LOVE YOU</em>.
                         </p>
                         <p>
-                          With on-screen credits in film and television, Kai has appeared on networks, including CBS's <em>Criminal Minds</em> opposite Joe Mantegna, and in campaigns for Apple, Honda, and Boost Mobile, among others. Her portrayal of Abigail in <em>The Crucible</em> was featured in US Airways Inflight Magazine, which highlighted UC Irvine as the "#1 training institution for young creative talent."
+                          With on-screen credits in film and television, Kai has appeared on networks, including CBS’s <em>Criminal Minds</em> opposite Joe Mantegna, and in campaigns for <strong>APPLE</strong>, <strong>HONDA</strong>, and <strong>BOOST MOBILE</strong>, among others. Her portrayal of Abigail in <em>THE CRUCIBLE</em> was featured in US Airways Inflight Magazine, which highlighted UC Irvine as the “#1 training institution for young creative talent.”
                         </p>
                         <p>
-                          Kai remains a sought-after industry figure working with emerging and established talent from programs such as Australian Idol, supporting their transition into theatre and television. She has placed artists into programs at Yale School of Drama, Columbia University, and NYU's Tisch, and is regularly engaged by leading casting directors and talent management to prepare high-profile artists for the American film and television markets.
+                          Kai remains a sought-after industry figure working with emerging and established talent from programs such as Australian Idol, supporting their transition into theatre and television. She has placed artists into programs at Yale School of Drama, Columbia University, and NYU’s Tisch, and is regularly engaged by leading casting directors and talent management to prepare high-profile artists for the American film and television market.
                         </p>
                         <p>
-                          Kai remains active on the live scene. More recently, she received the Sydney S+S Festival Awards for Best Director and Best Play. Her work is defined by rigorous craft, elevated performances, and character-driven storytelling with global appeal.
+                          More recently, Kai received the Sydney S+S Festival Awards for <strong>BEST DIRECTOR</strong> and <strong>BEST PLAY</strong>. Her work is defined by rigorous craft, elevated performances, and character-driven storytelling with global appeal.
                         </p>
-                        <p className="font-semibold pt-1 text-neutral-950 border-t border-neutral-100">
-                          Portfolio: www.BearTigerProductions.com
+                        <p className="font-semibold pt-1 text-neutral-900 border-t border-neutral-100">
+                          She’s at <a href="https://www.BearTigerProductions.com" target="_blank" rel="noopener noreferrer" className="hover:underline text-amber-600">www.BearTigerProductions.com</a>
                         </p>
                       </div>
 
