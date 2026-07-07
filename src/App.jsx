@@ -734,7 +734,7 @@ export default function App() {
                         <div className="relative aspect-[3/4] bg-neutral-100 border border-neutral-200 rounded-lg overflow-hidden flex items-center justify-center group shadow-sm">
                           {!portraitError ? (
                             <img 
-                              src="/kai_paynter_v2.jpg" 
+                              src="/kai_paynter_v3.jpg" 
                               alt="Kai Paynter Portrait"
                               className="w-full h-full object-cover"
                               onError={() => setPortraitError(true)}
@@ -748,7 +748,7 @@ export default function App() {
                                 </svg>
                               </div>
                               <p className="text-[10px] font-mono text-neutral-400 leading-tight">
-                                {"[ Place image inside public/kai_paynter_v2.jpg ]"}
+                                {"[ Place image inside public/kai_paynter_v3.jpg ]"}
                               </p>
                             </div>
                           )}
