@@ -127,6 +127,14 @@ export const PORTAL_ASSETS = {
     isLocked: true,
     icon: 'BookOpen',
   },
+  colorMockups: {
+    type: 'document',
+    title: 'Review Color Mockups',
+    description: 'Visual palette & aesthetic treatment reference',
+    isLocked: true,
+    googleDriveId: '1J9RQpGJHkzfaEd2Ul4Ms5XhTomoU8Ioe',
+    icon: 'BookOpen',
+  },
   script: {
     type: 'document',
     title: 'Read Pilot Script',
@@ -153,6 +161,7 @@ export const ASSET_ORDER = [
   'bible',
   'onesheet',
   'deck',
+  'colorMockups',
   'ep1',
   'ep1b',
   'script',

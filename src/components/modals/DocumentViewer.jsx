@@ -16,6 +16,7 @@ export const DocumentViewer = ({ activeDocument, onClose }) => {
     const labels = {
       script: 'SCREENPLAY PROOF',
       deck: 'INTERACTIVE DECK',
+      colorMockups: 'COLOR PALETTE & MOCKUPS | VISUAL TREATMENT',
       bible: 'SERIES BIBLE EXTRACT | UNDONE • ROMANTIC DRAMA',
       onesheet: 'EXECUTIVE SUMMARY',
       bio: 'CREATOR BIO DOCUMENT',
@@ -54,6 +55,11 @@ export const DocumentViewer = ({ activeDocument, onClose }) => {
                 setDeckPage={setDeckPage}
                 slides={PITCH_DECK_SLIDES}
               />
+            )}
+
+            {/* Color Mockups - Google Drive PDF */}
+            {activeDocument === 'colorMockups' && (
+              <ColorMockupsViewer />
             )}
 
             {/* Series Bible */}
@@ -483,6 +489,50 @@ function CreatorBioViewer({ portraitError, onPortraitError }) {
           </p>
         </div>
       </div>
+    </div>
+  );
+}
+
+/**
+ * Color Mockups Viewer Component
+ * Embeds Google Drive PDF viewer for visual treatment materials
+ */
+function ColorMockupsViewer() {
+  return (
+    <div className="space-y-6 font-sans text-xs text-neutral-800 max-w-4xl mx-auto">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-neutral-200 pb-4">
+        <div>
+          <h2 className="text-lg font-bold text-neutral-900 uppercase tracking-tight">
+            Visual Treatment & Color Palette
+          </h2>
+          <p className="text-[10px] text-neutral-400 tracking-wider font-mono mt-1">
+            DESIGN REFERENCE • AESTHETIC DIRECTION
+          </p>
+        </div>
+        <a
+          href="https://drive.google.com/file/d/1J9RQpGJHkzfaEd2Ul4Ms5XhTomoU8Ioe/view"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center space-x-1.5 px-3 py-1.5 bg-neutral-900 hover:bg-neutral-850 text-white rounded text-[10px] font-mono transition-colors border border-neutral-800"
+        >
+          <FileText size={10} />
+          <span>Open in Drive</span>
+        </a>
+      </div>
+
+      {/* Google Drive PDF Embed */}
+      <div className="aspect-[4/5] bg-neutral-100 border border-neutral-200 rounded-lg overflow-hidden shadow-md">
+        <iframe
+          src="https://drive.google.com/file/d/1J9RQpGJHkzfaEd2Ul4Ms5XhTomoU8Ioe/preview"
+          className="w-full h-full border-0"
+          title="Color Mockups PDF"
+          allow="autoplay"
+        />
+      </div>
+
+      <p className="text-[9px] text-neutral-400 italic border-t border-neutral-100 pt-4 leading-relaxed">
+        Visual treatment and color palette mockups are proprietary BearTiger Productions materials. © 2026 All rights reserved. No reproduction without written permission.
+      </p>
     </div>
   );
 }
