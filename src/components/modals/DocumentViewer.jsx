@@ -392,7 +392,7 @@ function CreatorBioViewer({ portraitError, onPortraitError }) {
           <div className="relative aspect-[3/4] bg-neutral-100 border border-neutral-200 rounded-lg overflow-hidden flex items-center justify-center group shadow-sm">
             {!portraitError ? (
               <img
-                src="/kai_paynter_v2.jpg"
+                src="/kai_paynter_v3.jpg"
                 alt="Kai Paynter Portrait"
                 className="w-full h-full object-cover"
                 onError={onPortraitError}
