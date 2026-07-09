@@ -36,7 +36,7 @@ undone-pitch-portal/
 ├── postcss.config.js
 ├── public/
 │   ├── key_artwork.jpg            <-- Cinematic homepage art card background
-│   ├── kai_paynter_v2.jpg         <-- Creator headshot (used in Biography modal)
+│   ├── kai_paynter_v3.jpg         <-- Creator headshot (used in Biography modal)
 │   ├── undone_creator_bio.pdf     <-- Downloadable creator CV
 │   ├── undone_series_bible.pdf    <-- Full series bible PDF package
 │   └── undone_one_sheet.pdf       <-- Official logline & synopsis overview PDF
