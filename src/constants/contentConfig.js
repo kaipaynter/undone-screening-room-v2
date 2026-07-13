@@ -129,8 +129,8 @@ export const PORTAL_ASSETS = {
   },
   colorMockups: {
     type: 'document',
-    title: 'Review Color Mockups',
-    description: 'Visual palette & aesthetic treatment reference',
+    title: 'Miscellaneous',
+    description: 'Additional content and information',
     isLocked: true,
     googleDriveId: '1J9RQpGJHkzfaEd2Ul4Ms5XhTomoU8Ioe',
     icon: 'BookOpen',
