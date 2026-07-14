@@ -161,9 +161,9 @@ export const ASSET_ORDER = [
   'bible',
   'onesheet',
   'deck',
-  'colorMockups',
   'ep1',
   'ep1b',
   'script',
   'bio',
+  'colorMockups',
 ];

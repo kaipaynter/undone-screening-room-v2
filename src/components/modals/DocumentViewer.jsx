@@ -152,7 +152,27 @@ function ScriptViewer() {
 function PitchDeckViewer({ deckPage, setDeckPage, slides }) {
   return (
     <div className="space-y-6 py-6 font-sans max-w-xl mx-auto">
-      <div className="bg-neutral-50 p-6 rounded-lg border border-neutral-200 min-h-[220px] flex flex-col justify-between">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <div>
+          <h2 className="text-2xl font-black text-neutral-900 uppercase tracking-tight">
+            Pitch Deck
+          </h2>
+          <p className="text-[10px] text-neutral-400 tracking-wider font-mono mt-1">
+            Interactive PDF Preview
+          </p>
+        </div>
+        <a
+          href="/btp_undone_extended_pitch.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center space-x-1.5 px-3 py-1.5 bg-neutral-900 hover:bg-neutral-850 text-white rounded text-[10px] font-mono transition-colors border border-neutral-800"
+        >
+          <Download size={10} />
+          <span>Open Pitch Deck PDF</span>
+        </a>
+      </div>
+
+      <div className="bg-neutral-50 p-6 rounded-lg border border-neutral-200 min-h-[220px]">
         <div className="space-y-2">
           <span className="text-[9px] font-mono uppercase tracking-wider text-amber-600 font-bold">
             {slides[deckPage].meta}
