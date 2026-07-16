@@ -26,43 +26,49 @@ Public Materials: Behind-the-Scenes (BTS) Trailer, Project One-sheet, and Creato
 
 📁 Repository Directory Checklist
 
-To ensure all live links, inline viewers, and document download pathways function correctly, your deployment directory must maintain the following file structures:
+To ensure all live links, inline viewers, and document download pathways function correctly, maintain the following file structure for this repository:
 
-undone-pitch-portal/
+```text
+undone-screening-room-v2/
+├── public/
+│   ├── key_artwork.jpg
+│   ├── kai_paynter_v3.jpg
+│   ├── undone_creator_bio.pdf
+│   ├── undone_one_sheet.pdf
+│   └── undone_series_bible.pdf
+├── src/
+│   ├── App.jsx
+│   ├── main.jsx
+│   ├── index.css
+│   ├── components/
+│   ├── constants/
+│   └── hooks/
 ├── index.html
 ├── package.json
+├── package-lock.json
 ├── vite.config.js
-├── tailwind.config.js
-├── postcss.config.js
-├── public/
-│   ├── key_artwork.jpg            <-- Cinematic homepage art card background
-│   ├── kai_paynter_v3.jpg         <-- Creator headshot (used in Biography modal)
-│   ├── undone_creator_bio.pdf     <-- Downloadable creator CV
-│   ├── undone_series_bible.pdf    <-- Full series bible PDF package
-│   └── undone_one_sheet.pdf       <-- Official logline & synopsis overview PDF
-└── src/
-    ├── main.jsx
-    ├── App.jsx                    <-- Main React code (pitch_website.jsx)
-    └── index.css                  <-- Tailwind directive file with noise textures
+└── README.md
+```
 
 
-🚀 Local Development Setup
+# 🚀 Local Development Setup
 
-This application is built as a single-file React component using Vite, Tailwind CSS, and Lucide React icons.
+This application is built as a single-page React application using Vite, Tailwind CSS, and Lucide React icons.
 
-1. Installation
+## 1. Installation
 
 Clone the repository and install the development dependencies:
 
-# Clone the repository
+### Clone the repository
 git clone [https://github.com/your-username/undone-pitch-portal.git](https://github.com/your-username/undone-pitch-portal.git)
+
 cd undone-pitch-portal
 
-# Install dependencies
+### Install dependencies
 npm install
 
 
-2. Run the Development Server
+## 2. Run the Development Server
 
 Boot up Vite's local hot-reloading server:
 
@@ -71,7 +77,7 @@ npm run dev
 
 Open http://localhost:5173 in your browser to test.
 
-3. Production Build
+## 3. Production Build
 
 Prepare a fully optimized production package for server hosting:
 
