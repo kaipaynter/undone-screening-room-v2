@@ -527,7 +527,7 @@ function CreatorBioViewer({ portraitError, onPortraitError }) {
 
 /**
  * Color Mockups Viewer Component
- * Embeds a Canva presentation for visual treatment materials
+ * Displays mockups and additional content from PDF
  */
 function ColorMockupsViewer() {
   return (
@@ -538,32 +538,31 @@ function ColorMockupsViewer() {
             Miscellaneous
           </h2>
           <p className="text-[10px] text-neutral-400 tracking-wider font-mono mt-1">
-            Additional content and information"
+            Additional content and information
           </p>
         </div>
         <a
-          href="https://canva.link/osgg6t3e0ku09pe"
+          href="/undone_mockups.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center space-x-1.5 px-3 py-1.5 bg-neutral-900 hover:bg-neutral-850 text-white rounded text-[10px] font-mono transition-colors border border-neutral-800"
         >
-          <FileText size={10} />
-          <span>Open in Canva</span>
+          <Download size={10} />
+          <span>Open Mockups PDF</span>
         </a>
       </div>
 
-      {/* Google Drive PDF Embed */}
+      {/* PDF Embed */}
       <div className="aspect-[4/5] bg-neutral-100 border border-neutral-200 rounded-lg overflow-hidden shadow-md">
         <iframe
-          src="https://drive.google.com/file/d/1J9RQpGJHkzfaEd2Ul4Ms5XhTomoU8Ioe/preview"
+          src="/undone_mockups.pdf"
           className="w-full h-full border-0"
-          title="Color Mockups PDF"
-          allow="autoplay"
+          title="Mockups PDF"
         />
       </div>
 
       <p className="text-[9px] text-neutral-400 italic border-t border-neutral-100 pt-4 leading-relaxed">
-        Visual treatment and color palette mockups are proprietary BearTiger Productions materials. © 2026 All rights reserved. No reproduction without written permission.
+        Mockups and additional content are proprietary BearTiger Productions materials. © 2026 All rights reserved. No reproduction without written permission.
       </p>
     </div>
   );
