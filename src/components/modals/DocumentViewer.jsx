@@ -245,7 +245,7 @@ function SeriesBibleViewer() {
             UNDONE
           </h3>
           <p className="text-[10px] text-neutral-400 tracking-wider font-mono mt-1">
-            UNDONE • ROMANTIC DRAMA
+            UNDONE • ROMANTIC DRAMA 
           </p>
         </div>
 
@@ -552,10 +552,13 @@ function ColorMockupsViewer() {
         </a>
       </div>
 
-      <div className="bg-neutral-50 p-6 rounded-lg border border-neutral-200 min-h-[220px] flex items-center justify-center">
-        <p className="text-center text-neutral-500 text-sm">
-          Click the button above to view the mockups and additional content in PDF format.
-        </p>
+      {/* PDF Embed */}
+      <div className="aspect-[4/5] bg-neutral-100 border border-neutral-200 rounded-lg overflow-hidden shadow-md">
+        <iframe
+          src="/undone_mockups.pdf"
+          className="w-full h-full border-0"
+          title="Mockups PDF"
+        />
       </div>
 
       <p className="text-[9px] text-neutral-400 italic border-t border-neutral-100 pt-4 leading-relaxed">
