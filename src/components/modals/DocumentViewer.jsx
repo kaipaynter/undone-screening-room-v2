@@ -543,22 +543,34 @@ function ColorMockupsViewer() {
         </div>
         <a
           href="/undone_mockups.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
+          download
           className="inline-flex items-center space-x-1.5 px-3 py-1.5 bg-neutral-900 hover:bg-neutral-850 text-white rounded text-[10px] font-mono transition-colors border border-neutral-800"
         >
           <Download size={10} />
-          <span>Open Mockups PDF</span>
+          <span>Download PDF</span>
         </a>
       </div>
 
-      {/* PDF Embed */}
+      {/* PDF Embed - Mobile optimized */}
       <div className="aspect-[4/5] bg-neutral-100 border border-neutral-200 rounded-lg overflow-hidden shadow-md">
         <iframe
-          src="/undone_mockups.pdf"
+          src="/undone_mockups.pdf#toolbar=1&navpanes=0"
           className="w-full h-full border-0"
           title="Mockups PDF"
+          sandbox="allow-same-origin"
+          style={{ pointerEvents: 'auto' }}
         />
+      </div>
+
+      <div className="text-center">
+        <a
+          href="/undone_mockups.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[10px] text-amber-500 hover:text-amber-400 transition-colors underline"
+        >
+          Having trouble viewing? Open PDF in new tab
+        </a>
       </div>
 
       <p className="text-[9px] text-neutral-400 italic border-t border-neutral-100 pt-4 leading-relaxed">
