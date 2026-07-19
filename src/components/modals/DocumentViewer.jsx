@@ -25,8 +25,8 @@ export const DocumentViewer = ({ activeDocument, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-40 bg-black/95 backdrop-blur-md overflow-y-auto flex `justify-center items-start p-4 md:p-6">
-      <div className="max-w-4xl w-full my-6 space-y-4">
+    <div className="fixed inset-0 z-40 bg-black/95 backdrop-blur-md overflow-y-auto flex justify-center items-start p-4 md:p-6">
+      <div className="max-w-4xl w-full mx-auto my-6 space-y-4">
         <div className="flex items-center justify-between">
           <span className="text-[10px] font-mono uppercase bg-neutral-900 px-3 py-1 text-amber-400 rounded-full border border-neutral-800">
             {getDocumentLabel(activeDocument)}
