@@ -540,12 +540,12 @@ function ColorMockupsViewer() {
         </a>
       </div>
 
-      {/* Canva Embed */}
+      {/* Google Drive PDF Embed */}
       <div className="aspect-[4/5] bg-neutral-100 border border-neutral-200 rounded-lg overflow-hidden shadow-md">
         <iframe
-          src="https://canva.link/osgg6t3e0ku09pe"
+          src="https://drive.google.com/file/d/1J9RQpGJHkzfaEd2Ul4Ms5XhTomoU8Ioe/preview"
           className="w-full h-full border-0"
-          title="Color Mockups Canva"
+          title="Color Mockups PDF"
           allow="autoplay"
         />
       </div>
