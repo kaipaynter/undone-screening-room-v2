@@ -162,7 +162,7 @@ function PitchDeckViewer({ deckPage, setDeckPage, slides }) {
           </p>
         </div>
         <a
-          href="/btp_undone_extended_pitch.pdf"
+          href="/btp_undone_extended_pitch_v4.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center space-x-1.5 px-3 py-1.5 bg-neutral-900 hover:bg-neutral-850 text-white rounded text-[10px] font-mono transition-colors border border-neutral-800"
@@ -515,7 +515,7 @@ function CreatorBioViewer({ portraitError, onPortraitError }) {
 
 /**
  * Color Mockups Viewer Component
- * Embeds Google Drive PDF viewer for visual treatment materials
+ * Embeds a Canva presentation for visual treatment materials
  */
 function ColorMockupsViewer() {
   return (
@@ -530,22 +530,22 @@ function ColorMockupsViewer() {
           </p>
         </div>
         <a
-          href="https://drive.google.com/file/d/1J9RQpGJHkzfaEd2Ul4Ms5XhTomoU8Ioe/view"
+          href="https://canva.link/osgg6t3e0ku09pe"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center space-x-1.5 px-3 py-1.5 bg-neutral-900 hover:bg-neutral-850 text-white rounded text-[10px] font-mono transition-colors border border-neutral-800"
         >
           <FileText size={10} />
-          <span>Open in Drive</span>
+          <span>Open in Canva</span>
         </a>
       </div>
 
-      {/* Google Drive PDF Embed */}
+      {/* Canva Embed */}
       <div className="aspect-[4/5] bg-neutral-100 border border-neutral-200 rounded-lg overflow-hidden shadow-md">
         <iframe
-          src="https://drive.google.com/file/d/1J9RQpGJHkzfaEd2Ul4Ms5XhTomoU8Ioe/preview"
+          src="https://canva.link/osgg6t3e0ku09pe"
           className="w-full h-full border-0"
-          title="Color Mockups PDF"
+          title="Color Mockups Canva"
           allow="autoplay"
         />
       </div>
