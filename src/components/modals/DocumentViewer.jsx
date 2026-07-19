@@ -14,7 +14,7 @@ export const DocumentViewer = ({ activeDocument, onClose }) => {
 
   const getDocumentLabel = (docType) => {
     const labels = {
-      script: 'SCREENPLAY PROOF',
+      script: 'PILOT SCRIPT | UNDONE',
       deck: 'INTERACTIVE DECK',
       colorMockups: 'COLOR PALETTE & MOCKUPS | VISUAL TREATMENT',
       bible: 'SERIES BIBLE EXTRACT | UNDONE • ROMANTIC DRAMA',
@@ -110,11 +110,23 @@ export const DocumentViewer = ({ activeDocument, onClose }) => {
 function ScriptViewer() {
   return (
     <div className="space-y-6 max-w-xl mx-auto">
-      <div className="text-center py-6 space-y-2">
-        <h2 className="text-2xl font-bold tracking-widest uppercase font-mono">
-          U N D O N E
-        </h2>
-        <p className="text-[10px]">Written by Kai Paynter & Ella Sullivan</p>
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-4 border-b border-neutral-200">
+        <div className="text-center sm:text-left py-6 space-y-2">
+          <h2 className="text-2xl font-bold tracking-widest uppercase font-mono">
+            U N D O N E
+          </h2>
+          <p className="text-[10px]">Written by Kai Paynter & Ella Sullivan</p>
+        </div>
+
+        <a
+          href="/pilot_script.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center space-x-1.5 px-3 py-1.5 bg-neutral-900 hover:bg-neutral-850 text-white rounded text-[10px] font-mono transition-colors border border-neutral-800"
+        >
+          <Download size={10} />
+          <span>Open Pilot Script PDF</span>
+        </a>
       </div>
 
       <div className="space-y-4 font-mono text-xs leading-relaxed">
