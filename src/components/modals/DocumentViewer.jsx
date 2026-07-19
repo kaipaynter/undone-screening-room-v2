@@ -14,9 +14,9 @@ export const DocumentViewer = ({ activeDocument, onClose }) => {
 
   const getDocumentLabel = (docType) => {
     const labels = {
-      script: 'SCREENPLAY PROOF',
+      script: 'PILOT SCRIPT | UNDONE',
       deck: 'INTERACTIVE DECK',
-      colorMockups: 'COLOR PALETTE & MOCKUPS | VISUAL TREATMENT',
+      colorMockups: 'MISCELLANEOUS | ADDITIONAL CONTENT AND INFORMATION',
       bible: 'SERIES BIBLE EXTRACT | UNDONE • ROMANTIC DRAMA',
       onesheet: 'EXECUTIVE SUMMARY',
       bio: 'CREATOR BIO DOCUMENT',
@@ -26,7 +26,7 @@ export const DocumentViewer = ({ activeDocument, onClose }) => {
 
   return (
     <div className="fixed inset-0 z-40 bg-black/95 backdrop-blur-md overflow-y-auto flex justify-center items-start p-4 md:p-6">
-      <div className="max-w-4xl w-full my-6 space-y-4">
+      <div className="max-w-4xl w-full mx-auto my-6 space-y-4">
         <div className="flex items-center justify-between">
           <span className="text-[10px] font-mono uppercase bg-neutral-900 px-3 py-1 text-amber-400 rounded-full border border-neutral-800">
             {getDocumentLabel(activeDocument)}
@@ -110,11 +110,23 @@ export const DocumentViewer = ({ activeDocument, onClose }) => {
 function ScriptViewer() {
   return (
     <div className="space-y-6 max-w-xl mx-auto">
-      <div className="text-center py-6 space-y-2">
-        <h2 className="text-2xl font-bold tracking-widest uppercase font-mono">
-          U N D O N E
-        </h2>
-        <p className="text-[10px]">Written by Kai Paynter & Ella Sullivan</p>
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-4 border-b border-neutral-200">
+        <div className="text-center sm:text-left py-6 space-y-2">
+          <h2 className="text-2xl font-bold tracking-widest uppercase font-mono">
+            U N D O N E
+          </h2>
+          <p className="text-[10px]">Written by Kai Paynter & Ella Sullivan</p>
+        </div>
+
+        <a
+          href="/pilot_script.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center space-x-1.5 px-3 py-1.5 bg-neutral-900 hover:bg-neutral-850 text-white rounded text-[10px] font-mono transition-colors border border-neutral-800"
+        >
+          <Download size={10} />
+          <span>Open Pilot Script PDF</span>
+        </a>
       </div>
 
       <div className="space-y-4 font-mono text-xs leading-relaxed">
@@ -233,7 +245,7 @@ function SeriesBibleViewer() {
             UNDONE
           </h3>
           <p className="text-[10px] text-neutral-400 tracking-wider font-mono mt-1">
-            UNDONE • ROMANTIC DRAMA
+            UNDONE • ROMANTIC DRAMA 
           </p>
         </div>
 
@@ -515,7 +527,7 @@ function CreatorBioViewer({ portraitError, onPortraitError }) {
 
 /**
  * Color Mockups Viewer Component
- * Embeds a Canva presentation for visual treatment materials
+ * Displays mockups and additional content from PDF
  */
 function ColorMockupsViewer() {
   return (
@@ -523,35 +535,34 @@ function ColorMockupsViewer() {
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-neutral-200 pb-4">
         <div>
           <h2 className="text-lg font-bold text-neutral-900 uppercase tracking-tight">
-            Visual Treatment & Color Palette
+            Miscellaneous
           </h2>
           <p className="text-[10px] text-neutral-400 tracking-wider font-mono mt-1">
-            DESIGN REFERENCE • AESTHETIC DIRECTION
+            ADDITIONAL CONTENT AND INFORMATION
           </p>
         </div>
         <a
-          href="https://canva.link/osgg6t3e0ku09pe"
+          href="/undone_mockups.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center space-x-1.5 px-3 py-1.5 bg-neutral-900 hover:bg-neutral-850 text-white rounded text-[10px] font-mono transition-colors border border-neutral-800"
         >
-          <FileText size={10} />
-          <span>Open in Canva</span>
+          <Download size={10} />
+          <span>Open Mockups PDF</span>
         </a>
       </div>
 
-      {/* Google Drive PDF Embed */}
+      {/* PDF Embed */}
       <div className="aspect-[4/5] bg-neutral-100 border border-neutral-200 rounded-lg overflow-hidden shadow-md">
         <iframe
-          src="https://drive.google.com/file/d/1J9RQpGJHkzfaEd2Ul4Ms5XhTomoU8Ioe/preview"
+          src="/undone_mockups.pdf"
           className="w-full h-full border-0"
-          title="Color Mockups PDF"
-          allow="autoplay"
+          title="Mockups PDF"
         />
       </div>
 
       <p className="text-[9px] text-neutral-400 italic border-t border-neutral-100 pt-4 leading-relaxed">
-        Visual treatment and color palette mockups are proprietary BearTiger Productions materials. © 2026 All rights reserved. No reproduction without written permission.
+        Mockups and additional content are proprietary BearTiger Productions materials. © 2026 All rights reserved. No reproduction without written permission.
       </p>
     </div>
   );

@@ -132,7 +132,7 @@ export const PORTAL_ASSETS = {
     title: 'Miscellaneous',
     description: 'Additional content and information',
     isLocked: true,
-    googleDriveId: '1J9RQpGJHkzfaEd2Ul4Ms5XhTomoU8Ioe',
+    pdfPath: '/undone_mockups.pdf',
     icon: 'BookOpen',
   },
   script: {
