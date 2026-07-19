@@ -538,7 +538,7 @@ function ColorMockupsViewer() {
             Miscellaneous
           </h2>
           <p className="text-[10px] text-neutral-400 tracking-wider font-mono mt-1">
-            Additional content and information
+            ADDITIONAL CONTENT AND INFORMATION
           </p>
         </div>
         <a
