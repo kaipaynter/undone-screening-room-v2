@@ -552,12 +552,15 @@ function ColorMockupsViewer() {
         </a>
       </div>
 
-      {/* PDF Embed */}
+      {/* Mockups Image */}
       <div className="aspect-[4/5] bg-neutral-100 border border-neutral-200 rounded-lg overflow-hidden shadow-md">
-        <iframe
-          src="/undone_mockups.pdf"
-          className="w-full h-full border-0"
-          title="Mockups PDF"
+        <img
+          src="/undone_mockups.png"
+          alt="Undone mockups"
+          className="w-full h-full object-cover"
+          loading="lazy"
+          decoding="async"
+          fetchPriority="low"
         />
       </div>
 
