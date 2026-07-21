@@ -25,7 +25,7 @@ export const Footer = ({ isUnlocked, onRelock }) => {
             onClick={onRelock}
             className="text-[10px] uppercase font-mono tracking-wider text-neutral-600 hover:text-red-400 transition-colors underline"
           >
-            Relock Staging Session
+            Relock Session
           </button>
         </div>
       )}

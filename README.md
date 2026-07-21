@@ -68,7 +68,16 @@ cd undone-pitch-portal
 npm install
 
 
-## 2. Run the Development Server
+## 2. Configure Supabase Environment Variables
+
+Create a local `.env` file in the repository root with your Supabase application values:
+
+```env
+VITE_SUPABASE_URL=https://your-supabase-project.supabase.co
+VITE_SUPABASE_ANON_KEY=your-public-anon-key
+```
+
+## 3. Run the Development Server
 
 Boot up Vite's local hot-reloading server:
 

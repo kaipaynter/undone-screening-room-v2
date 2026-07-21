@@ -9,11 +9,17 @@ export const PasswordModal = ({
   isVisible,
   inputPassword,
   passwordError,
+  lockoutSecondsRemaining = 0,
   onPasswordChange,
   onSubmit,
   onClose,
 }) => {
   if (!isVisible) return null;
+
+  const isLockedOut = lockoutSecondsRemaining > 0;
+  const submitLabel = isLockedOut
+    ? `Locked for ${lockoutSecondsRemaining}s`
+    : 'Verify Key';
 
   return (
     <div className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex items-center justify-center p-4">
@@ -33,8 +39,11 @@ export const PasswordModal = ({
             Executive Access Key Required
           </h3>
           <p className="text-xs text-neutral-400 max-w-xs mx-auto leading-relaxed">
-            You are trying to access a secure production asset. Please enter the
-            shared passcode to verify development credentials.
+            You are trying to access a secure asset. Please enter the
+            shared passcode to verify credentials.
+          </p>
+          <p className="text-[10px] text-amber-300/80 max-w-xs mx-auto leading-relaxed tracking-wide uppercase">
+            Passcode verification is performed securely.
           </p>
         </div>
 
@@ -43,12 +52,13 @@ export const PasswordModal = ({
             <input
               type="password"
               required
+              disabled={isLockedOut}
               placeholder="Enter Passcode"
               value={inputPassword}
               onChange={(e) => {
                 onPasswordChange(e.target.value);
               }}
-              className="w-full bg-neutral-950 px-4 py-3 rounded-xl border border-neutral-800 text-sm focus:outline-none focus:border-amber-400/40 text-center tracking-widest font-mono text-white placeholder:tracking-normal placeholder:font-sans"
+              className="w-full bg-neutral-950 px-4 py-3 rounded-xl border border-neutral-800 text-sm focus:outline-none focus:border-amber-400/40 text-center tracking-widest font-mono text-white placeholder:tracking-normal placeholder:font-sans disabled:cursor-not-allowed disabled:opacity-50"
               autoFocus
             />
           </div>
@@ -56,7 +66,7 @@ export const PasswordModal = ({
           {passwordError && (
             <div className="flex items-center space-x-2 text-xs text-red-400 bg-red-500/10 p-2.5 rounded-lg border border-red-500/20">
               <AlertCircle size={14} />
-              <span>Invalid credentials. Check configuration parameters.</span>
+              <span>{passwordError}</span>
             </div>
           )}
 
@@ -70,9 +80,10 @@ export const PasswordModal = ({
             </button>
             <button
               type="submit"
-              className="flex-1 py-2.5 bg-amber-400 hover:bg-amber-300 text-black rounded-xl text-xs font-bold uppercase tracking-wider transition-all"
+              disabled={isLockedOut}
+              className="flex-1 py-2.5 bg-amber-400 hover:bg-amber-300 text-black rounded-xl text-xs font-bold uppercase tracking-wider transition-all disabled:cursor-not-allowed disabled:opacity-50"
             >
-              Verify Key
+              {submitLabel}
             </button>
           </div>
         </form>
