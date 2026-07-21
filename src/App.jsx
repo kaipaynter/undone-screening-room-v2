@@ -141,6 +141,7 @@ export default function App() {
         isVisible={authPortal.showPasswordModal}
         inputPassword={authPortal.inputPassword}
         passwordError={authPortal.passwordError}
+        lockoutSecondsRemaining={authPortal.lockoutSecondsRemaining}
         onPasswordChange={authPortal.setInputPassword}
         onSubmit={authPortal.handlePasswordSubmit}
         onClose={authPortal.handleClosePasswordModal}
