@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import { useAuthPortal } from './hooks/useAuthPortal';
 
 // Constants
-import { getDecodedPassword } from './constants/secretConfig';
 import { PORTAL_ASSETS, ASSET_ORDER } from './constants/contentConfig';
 
 // Components
@@ -57,9 +56,7 @@ export default function App() {
   const [activeDocument, setActiveDocument] = useState(null);
   const [activeVideo, setActiveVideo] = useState(null);
 
-  // Initialize auth portal hook with decoded password
-  const correctPassword = getDecodedPassword();
-  const authPortal = useAuthPortal(correctPassword);
+  const authPortal = useAuthPortal();
 
   /**
    * Handle actions on protected (locked) assets

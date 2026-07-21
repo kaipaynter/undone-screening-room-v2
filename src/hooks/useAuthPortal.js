@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
+import { supabase } from '../lib/supabaseClient';
 
 /**
  * Custom hook for managing portal authentication state and protected actions
- * Handles password verification, session storage, and access control
+ * Handles passcode verification via Supabase RPC, session storage, and access control
  */
-export const useAuthPortal = (correctPassword) => {
+export const useAuthPortal = () => {
   const [isUnlocked, setIsUnlocked] = useState(false);
   const [showPasswordModal, setShowPasswordModal] = useState(false);
   const [inputPassword, setInputPassword] = useState('');
@@ -45,36 +46,44 @@ export const useAuthPortal = (correctPassword) => {
   };
 
   /**
-   * Verify entered password against the correct password (pre-decoded)
-   * Defensive: fails-closed on any error
+   * Verify entered passcode against Supabase RPC.
+   * Defensive: fails-closed on any error.
    */
-  const handlePasswordSubmit = (e) => {
+  const handlePasswordSubmit = async (e) => {
     e?.preventDefault?.();
+
+    if (typeof inputPassword !== 'string' || !inputPassword.trim()) {
+      setPasswordError(true);
+      return;
+    }
+
+    const passcode = inputPassword.trim();
+
     try {
-      // Strict validation: ensure inputs are non-empty strings
-      if (typeof inputPassword !== 'string' || !inputPassword.trim()) {
+      const { data, error } = await supabase.rpc('verify_passcode', {
+        passcode_input: passcode,
+      });
+
+      if (error) {
+        console.error('[AuthPortal] Supabase passcode verification error:', error);
         setPasswordError(true);
         return;
       }
 
-      if (typeof correctPassword !== 'string' || !correctPassword) {
-        setPasswordError(true);
-        return;
-      }
+      const isValid = Array.isArray(data)
+        ? Boolean(data?.[0]?.is_valid)
+        : Boolean(data?.is_valid);
 
-      // Constant-time comparison would be ideal, but for client-side purposes, strict equality is sufficient
-      if (inputPassword === correctPassword) {
+      if (isValid) {
         setIsUnlocked(true);
         try {
           sessionStorage.setItem('undone_portal_unlocked', 'true');
         } catch (storageErr) {
           console.warn('[AuthPortal] Session storage write failed:', storageErr);
-          // Continue anyway; unlock state stays in memory
         }
         setShowPasswordModal(false);
         setPasswordError(false);
 
-        // Execute the pending action if one exists
         if (pendingAction?.executeAction) {
           pendingAction.executeAction();
         }

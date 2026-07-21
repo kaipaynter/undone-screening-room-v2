@@ -36,6 +36,9 @@ export const PasswordModal = ({
             You are trying to access a secure production asset. Please enter the
             shared passcode to verify development credentials.
           </p>
+          <p className="text-[10px] text-amber-300/80 max-w-xs mx-auto leading-relaxed tracking-wide uppercase">
+            Passcode verification is performed securely via Supabase backend.
+          </p>
         </div>
 
         <form onSubmit={onSubmit} className="space-y-4">
