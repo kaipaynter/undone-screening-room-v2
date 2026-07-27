@@ -22,8 +22,48 @@ export const VideoPlayer = ({ activeVideo, onClose }) => {
 
   const videoSource = getVideoSource(activeVideo);
 
-  // Videos hosted on Google Drive need iframe embed
-  const isGoogleDriveVideo = activeVideo === 'ep1' || activeVideo === 'ep1b';
+  // Helper: convert common watch/short youtube links into an embed URL
+  const normalizeYouTubeEmbed = (src) => {
+    if (!src || typeof src !== 'string') return null;
+    try {
+      const url = new URL(src);
+      const host = url.host.toLowerCase();
+      // youtu.be short link
+      if (host.includes('youtu.be')) {
+        const id = url.pathname.replace(/^\//, '').split('/')[0];
+        if (id) return { embed: `https://www.youtube.com/embed/${id}${url.search || ''}`, watch: `https://www.youtube.com/watch?v=${id}${url.search || ''}` };
+      }
+      // youtube.com watch or embed
+      if (host.includes('youtube.com')) {
+        // If it's already an embed URL, use it
+        if (url.pathname.includes('/embed/')) return { embed: src, watch: `https://www.youtube.com/watch?v=${(url.pathname.split('/embed/')[1] || '').split('?')[0]}` };
+        const v = url.searchParams.get('v');
+        if (v) return { embed: `https://www.youtube.com/embed/${v}${url.search || ''}`, watch: `https://www.youtube.com/watch?v=${v}${url.search || ''}` };
+      }
+    } catch (e) {
+      return null;
+    }
+    return null;
+  };
+
+  const yt = normalizeYouTubeEmbed(videoSource);
+
+  // Determine whether to render an iframe (for YouTube, GDrive, Vimeo, etc.)
+  const isIframeVideo = (() => {
+    if (!videoSource || typeof videoSource !== 'string') return false;
+    try {
+      const url = new URL(videoSource);
+      const host = url.host.toLowerCase();
+      if (host.includes('youtube.com') || host.includes('youtu.be') || host.includes('drive.google.com') || host.includes('vimeo.com')) return true;
+    } catch (e) {
+      // Not a valid absolute URL — fallthrough to extension check
+    }
+    return !/\.(mp4|webm|ogg)$/i.test(videoSource);
+  })();
+
+  const isDrive = videoSource && videoSource.includes('drive.google.com');
+  const embedSrc = yt?.embed || videoSource;
+  const externalWatchUrl = yt?.watch || videoSource;
 
   return (
     <div className="fixed inset-0 z-40 bg-black/95 backdrop-blur-md flex items-center justify-center p-4">
@@ -43,21 +83,34 @@ export const VideoPlayer = ({ activeVideo, onClose }) => {
 
         {/* Secure Player Frame with dynamic direct media streaming */}
         <div className="secure-video-wrapper relative aspect-video bg-neutral-950 rounded-xl border border-neutral-800 overflow-hidden flex flex-col justify-center items-center shadow-2xl select-none">
-          {isGoogleDriveVideo ? (
+          {isIframeVideo ? (
             <div className="w-full h-full relative">
-              {/* Embedded Iframe bypassing GDrive 403 blocks */}
-              <iframe
-                src={videoSource}
-                className="w-full h-full border-0 rounded-xl"
-                allow="autoplay"
-                allowFullScreen
-                title="Video player"
-              />
-              {/* Invisible Shield Layer placed to mask GDrive default download actions */}
-              <div
-                className="absolute top-0 right-0 w-32 h-14 bg-transparent pointer-events-auto z-30 cursor-not-allowed"
-                title="Actions restricted on screener copy"
-              />
+              {/* Embedded Iframe for YouTube/GDrive/Vimeo or other embedable sources */}
+                <iframe
+                  src={embedSrc}
+                  className="w-full h-full border-0 rounded-xl"
+                  allow="autoplay; encrypted-media; fullscreen"
+                  allowFullScreen
+                  title="Video player"
+                />
+                {/* Fallback button to open the source externally (useful if embedding is blocked) */}
+                {externalWatchUrl && (
+                  <div className="absolute left-4 bottom-4 z-30">
+                    <button
+                      onClick={() => window.open(externalWatchUrl, '_blank', 'noopener')}
+                      className="px-3 py-1 text-xs rounded-full bg-amber-500 text-black font-semibold"
+                    >
+                      Open on YouTube
+                    </button>
+                  </div>
+                )}
+              {/* Invisible Shield Layer placed to mask GDrive default download actions when applicable */}
+              {isDrive && (
+                <div
+                  className="absolute top-0 right-0 w-32 h-14 bg-transparent pointer-events-auto z-30 cursor-not-allowed"
+                  title="Actions restricted on screener copy"
+                />
+              )}
             </div>
           ) : (
             <video

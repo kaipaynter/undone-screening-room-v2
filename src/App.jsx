@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 
+// Analytics
+//import { Analytics } from "@vercel/analytics/next"
+
 // Hooks
 import { useAuthPortal } from './hooks/useAuthPortal';
 
