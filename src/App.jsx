@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-// Analytics
-//import { Analytics } from "@vercel/analytics/next"
+// Analytics (use React integration for Vite / non-Next apps)
+import { Analytics } from "@vercel/analytics/react"
 
 // Hooks
 import { useAuthPortal } from './hooks/useAuthPortal';
