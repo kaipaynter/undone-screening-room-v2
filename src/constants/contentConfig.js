@@ -12,7 +12,7 @@ export const VIDEO_SOURCES = {
   ep1: 'https://drive.google.com/file/d/1Hj2uYR08gOQC0pzD354RNvhe08OpNxZf/preview',
   ep1b: 'https://drive.google.com/file/d/11eS4xg933pewfrXYwRc0gvOo1rQ6g_79/preview',
   teaser: 'https://assets.mixkit.co/videos/preview/mixkit-city-lights-at-night-with-neon-signs-and-traffic-42999-large.mp4',
-  bts: 'https://assets.mixkit.co/videos/preview/mixkit-hands-of-a-director-holding-a-movie-clapperboard-42993-large.mp4',
+  bts: 'https://www.youtube.com/embed/ki0nDQumKYA?si=NkLJSiT3GJHEINvm',
 };
 
 /**
