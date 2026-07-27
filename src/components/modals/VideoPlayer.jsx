@@ -1,6 +1,6 @@
 import React from 'react';
 import { X } from 'lucide-react';
-import { getVideoSource } from '../../constants/contentConfig';
+import { getVideoSource, PORTAL_ASSETS } from '../../constants/contentConfig';
 
 /**
  * VideoPlayer Modal
@@ -21,6 +21,7 @@ export const VideoPlayer = ({ activeVideo, onClose }) => {
   };
 
   const videoSource = getVideoSource(activeVideo);
+  const assetMeta = PORTAL_ASSETS[activeVideo] || {};
 
   // Helper: convert common watch/short youtube links into an embed URL
   const normalizeYouTubeEmbed = (src) => {
@@ -47,6 +48,7 @@ export const VideoPlayer = ({ activeVideo, onClose }) => {
   };
 
   const yt = normalizeYouTubeEmbed(videoSource);
+  const externalWatchUrl = assetMeta.youtubeUrl || yt?.watch || videoSource;
 
   // Determine whether to render an iframe (for YouTube, GDrive, Vimeo, etc.)
   const isIframeVideo = (() => {
@@ -63,7 +65,6 @@ export const VideoPlayer = ({ activeVideo, onClose }) => {
 
   const isDrive = videoSource && videoSource.includes('drive.google.com');
   const embedSrc = yt?.embed || videoSource;
-  const externalWatchUrl = yt?.watch || videoSource;
 
   return (
     <div className="fixed inset-0 z-40 bg-black/95 backdrop-blur-md flex items-center justify-center p-4">
@@ -93,17 +94,6 @@ export const VideoPlayer = ({ activeVideo, onClose }) => {
                   allowFullScreen
                   title="Video player"
                 />
-                {/* Fallback button to open the source externally (useful if embedding is blocked) */}
-                {externalWatchUrl && (
-                  <div className="absolute left-4 bottom-4 z-30">
-                    <button
-                      onClick={() => window.open(externalWatchUrl, '_blank', 'noopener')}
-                      className="px-3 py-1 text-xs rounded-full bg-amber-500 text-black font-semibold"
-                    >
-                      Open on YouTube
-                    </button>
-                  </div>
-                )}
               {/* Invisible Shield Layer placed to mask GDrive default download actions when applicable */}
               {isDrive && (
                 <div
@@ -142,8 +132,18 @@ export const VideoPlayer = ({ activeVideo, onClose }) => {
           </div>
         </div>
 
-        <div className="text-center text-[10px] text-neutral-600 font-mono">
-          PORTAL SOURCE SCREENS V.1 • PRESS ESC TO EXIT PREVIEW
+        <div className="flex items-center justify-between text-[10px] text-neutral-600 font-mono">
+          <div>
+            {externalWatchUrl && (
+              <button
+                onClick={() => window.open(externalWatchUrl, '_blank', 'noopener')}
+                className="px-3 py-1 text-[10px] rounded-full bg-neutral-900 hover:bg-neutral-850 text-neutral-300 hover:text-amber-300 transition-colors"
+              >
+                Open on YouTube
+              </button>
+            )}
+          </div>
+          <div>PORTAL SOURCE SCREENS V.1 • PRESS ESC TO EXIT PREVIEW</div>
         </div>
       </div>
     </div>

@@ -12,8 +12,8 @@ export const VIDEO_SOURCES = {
   ep1: 'https://drive.google.com/file/d/1Hj2uYR08gOQC0pzD354RNvhe08OpNxZf/preview',
   ep1b: 'https://drive.google.com/file/d/11eS4xg933pewfrXYwRc0gvOo1rQ6g_79/preview',
   teaser: 'https://assets.mixkit.co/videos/preview/mixkit-city-lights-at-night-with-neon-signs-and-traffic-42999-large.mp4',
-  // Use the short YT watch link; player will convert to embed when needed
-  bts: 'https://youtu.be/ki0nDQumKYA?si=jImjAv6UT7wIM1ZT',
+  // BTS hosted on Google Drive (use preview embed)
+  bts: 'https://drive.google.com/file/d/1nYOWxtJQCh3j28-0D7ZSi1baLA-CLP--/preview',
 };
 
 /**
@@ -89,6 +89,7 @@ export const PORTAL_ASSETS = {
     isLocked: false,
     accessLabel: 'Public Access',
     icon: 'Film',
+    youtubeUrl: 'https://www.youtube.com/watch?v=ki0nDQumKYA',
   },
   ep1: {
     type: 'video',

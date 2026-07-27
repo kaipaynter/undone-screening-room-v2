@@ -25,11 +25,25 @@ export const AssetCard = ({
 }) => {
   const showPlayIcon = assetData.type === 'video';
   const showExternalLinkIcon = assetData.type === 'document';
+  const hasYouTubeLink = assetData.type === 'video' && assetData.youtubeUrl;
+
+  const handleCardClick = (event) => {
+    if (event.target.closest('a')) return;
+    onClick();
+  };
 
   return (
-    <button
-      onClick={onClick}
-      className="w-full p-5 rounded-xl bg-neutral-900/40 border border-neutral-900 hover:border-amber-500/30 hover:bg-neutral-900/80 transition-all flex items-center justify-between group relative overflow-hidden"
+    <div
+      role="button"
+      tabIndex={0}
+      onClick={handleCardClick}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          handleCardClick(e);
+        }
+      }}
+      className="w-full p-5 rounded-xl bg-neutral-900/40 border border-neutral-900 hover:border-amber-500/30 hover:bg-neutral-900/80 transition-all flex items-center justify-between group relative overflow-hidden cursor-pointer"
     >
       <div className="flex items-center space-x-4">
         <div className="p-3 rounded-lg bg-neutral-950 text-amber-400 group-hover:scale-105 transition-transform">
@@ -55,19 +69,33 @@ export const AssetCard = ({
           <p className="text-neutral-500 text-xs">{assetData.description}</p>
         </div>
       </div>
-      {showPlayIcon && (
-        <Play
-          size={14}
-          fill="currentColor"
-          className="text-neutral-600 group-hover:text-amber-400 transition-colors"
-        />
-      )}
-      {showExternalLinkIcon && (
-        <ExternalLink
-          size={14}
-          className="text-neutral-600 group-hover:text-amber-400 transition-colors"
-        />
-      )}
-    </button>
+      <div className="flex items-center space-x-3">
+        {hasYouTubeLink && (
+          <a
+            href={assetData.youtubeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+            className="p-2 rounded-full bg-neutral-950 text-neutral-400 hover:bg-neutral-900 hover:text-amber-400 transition-colors"
+            aria-label="Open on YouTube"
+          >
+            <ExternalLink size={16} />
+          </a>
+        )}
+        {showPlayIcon && (
+          <Play
+            size={14}
+            fill="currentColor"
+            className="text-neutral-600 group-hover:text-amber-400 transition-colors"
+          />
+        )}
+        {showExternalLinkIcon && (
+          <ExternalLink
+            size={14}
+            className="text-neutral-600 group-hover:text-amber-400 transition-colors"
+          />
+        )}
+      </div>
+    </div>
   );
 };
