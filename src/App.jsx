@@ -161,6 +161,9 @@ export default function App() {
         activeVideo={activeVideo}
         onClose={() => setActiveVideo(null)}
       />
+
+      {/* VERCEL WEB ANALYTICS */}
+      <Analytics />
     </div>
   );
 }
