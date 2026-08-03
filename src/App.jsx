@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 // Analytics (use React integration for Vite / non-Next apps)
 import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 // Hooks
 import { useAuthPortal } from './hooks/useAuthPortal';
@@ -164,6 +165,9 @@ export default function App() {
 
       {/* VERCEL WEB ANALYTICS */}
       <Analytics />
+
+      {/* VERCEL SPEED INSIGHTS */}
+      <SpeedInsights />
     </div>
   );
 }
