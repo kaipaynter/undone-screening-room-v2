@@ -366,10 +366,19 @@ function OneSheetViewer() {
 
       <div className="space-y-4 text-neutral-700 leading-relaxed text-sm">
         <p>
-          <strong>Logistical Summary:</strong> UNDONE is a ready-to-package
-          premier romantic drama with a completed pilot episode, multi-season
-          bible summaries, visual pitches, and estimated pilot budgeting
-          breakdowns.
+          <strong>Logistical Summary:</strong> UNDONE centres a perspective rarely
+          seen on screen... Through the eyes of a young Black woman, the series
+          explores the realities of navigating predominantly White spaces - in the
+          workplace, at university, romantic relationships, within friendships and
+          even within her own mixed-heritage family.
+        </p>
+        <p>
+          It examines the lasting impact of PTSD in women of colour, the
+          complexity of existing between Black & White worlds, and the emotional
+          labour of constantly negotiating identity and belonging. Just as
+          importantly, UNDONE celebrates the power of female relationships,
+          revealing how women sustain, protect and uplift one another when the
+          world around them does not.
         </p>
         <p>
           <strong>Target Audience:</strong> Core demographic adults 21-45; ideal
