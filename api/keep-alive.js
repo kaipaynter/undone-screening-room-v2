@@ -16,7 +16,7 @@ export default async function handler(request, response) {
 
   const supabase = createClient(supabaseUrl, supabaseAnonKey);
   const { data, error } = await supabase
-    .from('passcodes')
+    .from('access_passcodes')
     .select('id')
     .limit(1);
 
