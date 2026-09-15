@@ -12,6 +12,7 @@ export const VIDEO_SOURCES = {
   ep1: 'https://drive.google.com/file/d/1Hj2uYR08gOQC0pzD354RNvhe08OpNxZf/preview',
   ep1b: 'https://drive.google.com/file/d/11eS4xg933pewfrXYwRc0gvOo1rQ6g_79/preview',
   teaser: 'https://assets.mixkit.co/videos/preview/mixkit-city-lights-at-night-with-neon-signs-and-traffic-42999-large.mp4',
+  teaserAlt: 'https://assets.mixkit.co/videos/preview/mixkit-city-lights-at-night-with-neon-signs-and-traffic-42999-large.mp4',
   // BTS hosted on Google Drive (use preview embed)
   bts: 'https://drive.google.com/file/d/1nYOWxtJQCh3j28-0D7ZSi1baLA-CLP--/preview',
 };
@@ -77,7 +78,14 @@ export const PORTAL_ASSETS = {
   // Videos
   teaser: {
     type: 'video',
-    title: 'Watch Teaser Trailer',
+    title: 'Watch Pitch Trailer',
+    description: '2:30 minute promotional trailer',
+    isLocked: true,
+    icon: 'Play',
+  },
+  teaserAlt: {
+    type: 'video',
+    title: 'Watch alternate Pitch Trailer',
     description: '2:30 minute promotional trailer',
     isLocked: true,
     icon: 'Play',
@@ -93,14 +101,14 @@ export const PORTAL_ASSETS = {
   },
   ep1: {
     type: 'video',
-    title: 'Episode 1A "The Party"',
+    title: 'Stakeholder Episode 1, The Party',
     description: '45 minute stakeholder review cut',
     isLocked: true,
     icon: 'Tv',
   },
   ep1b: {
     type: 'video',
-    title: 'Episode 1B "The Party"',
+    title: 'Episode 1, The Party',
     description: '45 minute festival premier cut',
     isLocked: true,
     icon: 'Tv',
@@ -159,6 +167,7 @@ export const PORTAL_ASSETS = {
  */
 export const ASSET_ORDER = [
   'teaser',
+  'teaserAlt',
   'bts',
   'bible',
   'onesheet',

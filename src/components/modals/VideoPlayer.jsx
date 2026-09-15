@@ -12,10 +12,11 @@ export const VideoPlayer = ({ activeVideo, onClose }) => {
 
   const getVideoLabel = (videoKey) => {
     const labels = {
-      teaser: 'Teaser Trailer Preview',
+      teaser: 'Watch Pitch Trailer',
+      teaserAlt: 'Watch alternate Pitch Trailer',
       bts: 'Behind-The-Scenes Cut',
-      ep1: 'Episode 1A \'The Party\' Stakeholder Review',
-      ep1b: 'Episode 1B \'The Party\' Festival Cut',
+      ep1: 'Stakeholder Episode 1, The Party',
+      ep1b: 'Episode 1, The Party',
     };
     return labels[videoKey] || 'Video Preview';
   };
