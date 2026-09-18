@@ -142,7 +142,7 @@ export const PORTAL_ASSETS = {
     title: 'Miscellaneous',
     description: 'Additional content and information',
     isLocked: true,
-    pdfPath: '/undone_mockups.pdf',
+    pdfPath: '/kehlani.pdf',
     icon: 'BookOpen',
   },
   script: {
