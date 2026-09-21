@@ -174,7 +174,7 @@ function PitchDeckViewer({ deckPage, setDeckPage, slides }) {
           </p>
         </div>
         <a
-          href="/btp_undone_extended_pitch_v6.pdf"
+          href="/btp_undone_extended_pitch_v4.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center space-x-1.5 px-3 py-1.5 bg-neutral-900 hover:bg-neutral-850 text-white rounded text-[10px] font-mono transition-colors border border-neutral-800"
@@ -250,7 +250,7 @@ function SeriesBibleViewer() {
         </div>
 
         <a
-          href="/undone_series_bible.pdf"
+          href="/undone_series_bible_v2.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center space-x-1.5 px-3 py-1.5 bg-neutral-900 hover:bg-neutral-850 text-white rounded text-[10px] font-mono transition-colors border border-neutral-800"
@@ -354,7 +354,7 @@ function OneSheetViewer() {
         </div>
 
         <a
-          href="/undone_one_sheet.pdf"
+          href="/undone_one_sheet_v2.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center space-x-1.5 px-3 py-1.5 bg-neutral-900 hover:bg-neutral-850 text-white rounded text-[10px] font-mono transition-colors border border-neutral-800 animate-pulse"
