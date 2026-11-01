@@ -11,8 +11,8 @@
 export const VIDEO_SOURCES = {
   ep1: 'https://drive.google.com/file/d/1Hj2uYR08gOQC0pzD354RNvhe08OpNxZf/preview',
   ep1b: 'https://drive.google.com/file/d/11eS4xg933pewfrXYwRc0gvOo1rQ6g_79/preview',
-  teaser: 'https://assets.mixkit.co/videos/preview/mixkit-city-lights-at-night-with-neon-signs-and-traffic-42999-large.mp4',
-  teaserAlt: 'https://assets.mixkit.co/videos/preview/mixkit-city-lights-at-night-with-neon-signs-and-traffic-42999-large.mp4',
+  teaser: 'https://www.youtube.com/watch?v=F4Gl6vDtkNI',
+  teaserAlt: 'https://www.youtube.com/watch?v=HH5UsYiS_Hc',
   // BTS hosted on Google Drive (use preview embed)
   bts: 'https://drive.google.com/file/d/1nYOWxtJQCh3j28-0D7ZSi1baLA-CLP--/preview',
 };
